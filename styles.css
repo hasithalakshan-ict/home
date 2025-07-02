@@ -1,0 +1,595 @@
+@font-face {
+  font-family: 'FM Basuru';
+  src: url('fonts/FMBasuru\ x.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #fff;
+    color: #111;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 5vw 0 5vw;
+    background: #fff;
+}
+
+.header-left .logo {
+    height: 150px;
+
+}
+
+nav a {
+    margin-left: 32px;
+    text-decoration: none;
+    color: #111;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+    
+}
+nav a:hover {
+    color: #0099ff;
+}
+
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 5vw;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.main-left {
+    flex: 1.2;
+    min-width: 270px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quote {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #111;
+    text-align: center;
+    line-height: 1.2;
+    position: relative;
+    
+}
+.quote-mark {
+    font-family: 'Times New Roman', Times, serif;
+    color: #e30613;
+    font-size: 3.5rem;
+    font-weight: 900;
+    vertical-align: top;
+}
+
+.quote-mark-right {
+    float: right;
+    margin-top: -1rem; /* adjust this as needed */
+    margin-right: 6rem;
+}
+
+
+.quote-title {
+    color: #00aaff;
+    font-size: 7.5rem;
+    font-weight: 1000;
+    margin: 0.2em 0;
+    font-family: 'FM Basuru', sans-serif;
+}
+
+.quote-sub {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #111;
+}
+.quote-sub .red {
+    color: #e30613;
+}
+
+.main-right {
+    flex: 1;
+    min-width: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile-img-wrapper {
+    position: relative;
+    width: 440px;
+    height: 440px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    margin-top: -40px;
+}
+
+.profile-img-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 10px solid transparent;
+    border-left: 10px solid #e30613;
+    border-radius: 50%;
+    pointer-events: none;
+    box-sizing: border-box;
+    /* Show a bit more than half (adjust polygon points for your needs) */
+    clip-path: polygon(
+        0% 10%,   /* top left, a bit down */
+        0% 90%,   /* bottom left, a bit up */
+        100% 100%,/* bottom right */
+        100% %   /* top right */
+    );
+}
+.profile-img {
+    width: 420px;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+
+.profile-details {
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 8px;
+    color: #222;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 32px 0 18px 0;
+}
+.red {
+    color: #e30613;
+}
+.blue {
+    color: #00aaff;
+}
+.green {
+    color: #1ebc3b;
+}
+.bold {
+    font-weight: 900;
+}
+
+.timetable-section {
+    margin-bottom: 32px;
+}
+.timetable-cards {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+.timetable-card {
+    border: 3.5px solid #00aaff;
+    border-radius: 18px;
+    padding: 36px 48px; /* Increased padding */
+    min-width: 240px;   /* Wider cards */
+    text-align: center;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    flex: 1 1 auto; /* Helps them grow equally */
+}
+
+.timetable-title {
+    font-size: 1.6rem;  /* was 1.3rem */
+    font-weight: 800;
+    display: block;
+    margin-bottom: 12px;
+}
+.timetable-title.red {
+    color: #e30613;
+}
+.timetable-sub {
+    font-size: 1.3rem;  /* was 1.1rem */
+    color: #222;
+    margin-bottom: 8px;
+    display: block;
+}
+.timetable-time {
+    font-size: 1.2rem;  /* was 1rem */
+    color: #444;
+}
+
+.plan-section {
+    margin-bottom: 32px;
+}
+.plan-text {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #111;
+    line-height: 1.7;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.join-section {
+    margin-bottom: 32px;
+}
+.join-box {
+    border: 3.5px solid #00aaff;
+    border-radius: 16px;
+    padding: 18px 24px;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+.join-phone {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0099ff;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+.join-phone:hover {
+    text-decoration: underline;
+}
+
+.pastpapers-section {
+    margin-bottom: 32px;
+}
+.pastpapers-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 18px;
+}
+.pastpaper-btn {
+    background: #00aaff;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    padding: 16px 32px;
+    text-decoration: none;
+    transition: background 0.2s;
+    min-width: 90px;
+    text-align: center;
+}
+.pastpaper-btn:hover {
+    background: #e30613;
+}
+
+footer {
+    background: #fff;
+    padding: 32px 0 24px 0;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+.footer-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+.footer-social span {
+    margin-right: 12px;
+    color: #e30613;
+}
+.footer-social a {
+    display: inline-block;
+    margin: 0 4px;
+}
+.footer-social img {
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    transition: transform 0.2s;
+}
+.footer-social img:hover {
+    transform: scale(1.15);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .main-left, .main-right {
+        min-width: 0;
+        width: 100%;
+    }
+    .timetable-cards {
+        flex-direction: column;
+        gap: 18px;
+    }
+}
+.logo {
+    display: block;
+}
+
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+.pastpaper-btn {
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.pastpaper-btn:hover {
+  transform: scale(1.05);
+  background: #e30613;
+}
+
+
+
+.slide-in {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.6s ease-out;
+}
+.slide-in.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+.quote-title {
+  animation: popIn 0.9s ease-out;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+.footer-social img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px #00aaff);
+}
+
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.profile-img-wrapper {
+  animation: slideUp 2.5s ease-out forwards;
+}
+
+
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+nav {
+  animation: slideDown 0.8s ease-out forwards;
+}
+
+
+
+@keyframes slideLeftLogo {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.header-left .logo {
+  animation: slideLeftLogo 0.8s ease-out forwards;
+}
+
+
+
+@keyframes zoomInQuote {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.quote-sub {
+  animation: zoomInQuote 0.8s ease-out forwards;
+}
+
+
+.cursor {
+  display: inline-block;
+  color: #e30613;
+  font-weight: bold;
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+
+/* Left quote mark */
+.quote-mark {
+  opacity: 0;
+  animation: dropIn 0.6s ease forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes dropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Title (e.g. සොඳුරුතම) */
+.quote-title {
+  opacity: 0;
+  animation: zoomIn 0.8s ease forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Right quote mark */
+.quote-mark-right {
+  opacity: 0;
+  animation: slideInRight 0.6s ease forwards;
+  animation-delay: 2.5s;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.profile-details {
+  animation: floatUp 1.2s ease-out forwards;
+  animation-delay: 1s; /* optional: delay to sync with photo typing */
+  opacity: 0; /* needed for animation to start from invisible */
+}
+
+
+.timetable-card {
+  opacity: 100;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.timetable-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timetable-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+
+.plan-section {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.plan-section.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+.join-box {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.join-box.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+footer .copyright-text {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
