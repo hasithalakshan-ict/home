@@ -1,248 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hasitha Lakshan - ICT </title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hasitha Lakshan - ICT</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-<style>
-    .sinhala-text {
-        font-family: 'Noto Sans Sinhala', sans-serif;
-        font-size: 18px;
-        line-height: 1.8;
-    }
-</style>
-
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-left">
-            <img src="Assets/Artboard 1.png" alt="Logo" class="logo">
-        </div>
-<nav>
-  <a href="#timetable"><b>Timetable</b></a>
-  <a href="#plan"><b>Our Plan</b></a>
-  <a href="#join"><b>How to Join</b></a>
-  <a href="#pastpapers"><b>Past Papers</b></a>
-</nav>
-
-    </header>
-
-    <!-- Main Section -->
-    <main>
-        <section class="main-content">
-            <div class="main-left">
-                <div class="quote">
-                    <span class="quote-mark">“</span>
-                    <span class="quote-title"><b>සොඳුරුතම</b></span><br>
-                    <span class="quote-sub"><b>උසස් පෙළ<br><span class="red">ICT</span><br><b>ගවේෂණය</b></span><br>
-                    <span class="quote-mark quote-mark-right">”</span>
-
-                </div>
-            </div>
-            <div class="main-right">
-                <div class="profile-img-wrapper">
-                    <img src="Assets/Mainimage.jpg" alt="Main" class="profile-img">
-                </div>
-                <div class="profile-details">
-                    <strong>Hasitha Lakshan</strong><br>
-                    BSc (Hons) in IT Specializing in Interactive Media - SLIIT<br>
-                    Professional Certificate in 3D Animation & VFX - IIT
-                </div>
-            </div>
-        </section>
-
-        <!-- Timetable -->
-<section class="timetable-section" id="timetable">
-    <h2 class="section-title red">Timetable</h2>
-    <div class="timetable-cards">
-        <div class="timetable-card">
-            <span class="timetable-title">
-                <span class="year-part">20</span><span class="year-part bold red">27</span> A/L<br>Theory
-            </span>
-            <span class="timetable-sub">සදුදා</span>
-            <span class="timetable-time">8.00 p.m. - 10.00 p.m.</span>
-        </div>
-
-        <div class="timetable-card">
-            <span class="timetable-title">
-                <span class="year-part">20</span><span class="year-part bold red">26</span> A/L<br>Revision
-            </span>
-            <span class="timetable-sub">අඟහරුවාදා</span>
-            <span class="timetable-time">8.00 p.m. - 10.00 p.m.</span>
-        </div>
-
-        <div class="timetable-card">
-            <span class="timetable-title">
-                Q<span class="bold red">&</span>A<br>Session
-            </span>
-            <span class="timetable-sub">බදාදා</span>
-            <span class="timetable-time">8.00 p.m. - 10.00 p.m.</span>
-        </div>
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <img src="Assets/Artboard 1.png" alt="Logo" class="logo" />
     </div>
-</section>
-<br>
-<!-- Our Plan -->
-<section class="plan-section" id="plan">
-    <h2 class="section-title red">Our Plan</h2>
-    <p class="plan-text sinhala-text">
-        විෂය නිර්දේශයේ පාඩම් 13 ම <span class="blue">විශ්ලේෂණාත්මකව නිර්මාණය කරන ලද නිබන්ධන</span> භාවිතයෙන් ආවරණය කෙරේ. 
-        විභාගයට පෙර සියලුම පසුගිය ප්‍රශ්න පත්‍ර සහ විභාග ඉලක්ක කරගත් ආදර්ශ ප්‍රශ්න පත්‍ර සාකච්ඡා කරනු ලැබේ.<br>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#timetable"><b>Timetable</b></a>
+      <a href="#plan"><b>Our Plan</b></a>
+      <a href="#join"><b>How to Join</b></a>
+      <a href="#pastpapers"><b>Past Papers</b></a>
+    </nav>
+
+     <button id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+
+
+
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="main-content">
+      <div class="main-left">
+        <div class="quote">
+          <span class="quote-mark">“</span>
+          <span class="quote-title"><b class="typing-text">සොඳුරුතම</b></span><br />
+          <span class="quote-sub">
+            <b>උසස් පෙළ<br /><span class="red">ICT</span><br />ගවේෂණය</b>
+          </span><br>
+          <span class="quote-mark quote-mark-right">”</span>
+        </div>
+      </div>
+      <div class="main-right">
+        <div class="profile-img-wrapper">
+          <img src="Assets/Mainimage.jpg" alt="Main" class="profile-img" />
+        </div>
+        <div class="profile-details">
+          <strong>Hasitha Lakshan</strong><br />
+          BSc (Hons) in IT Specializing Interactive Media - SLIIT<br />
+          Professional Certificate in 3D Animation & VFX - IIT
+        </div>
+      </div>
+    </section>
+
+    <!-- Timetable -->
+    <section class="timetable-section" id="timetable">
+      <h2 class="section-title red">Timetable</h2>
+      <div class="timetable-cards">
+        <div class="timetable-card">
+          <span class="timetable-title">
+            <span class="year-part">20</span><span class="year-part bold red">27</span> A/L<br />Theory
+          </span>
+          <span class="timetable-sub">සදුදා</span>
+          <span class="timetable-time">8.00 p.m. - 10.00 p.m.</span>
+        </div>
+
+        <div class="timetable-card">
+          <span class="timetable-title">
+            <span class="year-part">20</span><span class="year-part bold red">26</span> A/L<br />Revision
+          </span>
+          <span class="timetable-sub">අඟහරුවාදා</span>
+          <span class="timetable-time">8.00 p.m. - 10.00 p.m.</span>
+        </div>
+
+        <div class="timetable-card">
+          <span class="timetable-title">
+            Q<span class="bold red">&</span>A<br />Session
+          </span>
+          <span class="timetable-sub">බදාදා</span>
+          <span class="timetable-time">8.00 p.m. - 10.00 p.m.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Plan -->
+    <section class="plan-section" id="plan">
+      <h2 class="section-title red">Our Plan</h2>
+      <p class="plan-text sinhala-text">
+        විෂය නිර්දේශයේ පාඩම් 13 ම
+        <span class="blue">විශ්ලේෂණාත්මකව නිර්මාණය කරන ලද නිබන්ධන</span> භාවිතයෙන් ආවරණය කෙරේ. විභාගයට පෙර සියලුම
+        පසුගිය ප්‍රශ්න පත්‍ර සහ විභාග ඉලක්ක කරගත් ආදර්ශ ප්‍රශ්න පත්‍ර සාකච්ඡා කරනු ලැබේ.<br />
         විෂය කරුණු පිළිබඳ පැන නගින ගැටළු පැහැදිලි කරගැනීමට අවශ්‍ය සිසුන් සදහා වෙනම ප්‍රශ්නෝත්තර සැසියක්ද පැවැත්වේ.
-    </p>
-</section>
+      </p>
+    </section>
 
+    <!-- How to Join -->
+    <section class="join-section" id="join">
+      <h2 class="section-title red">How to join?</h2>
+      <div class="join-box">
+        <p class="sinhala-text">
+          පන්තියට සම්බන්ධ වීමට අවශ්‍ය සිසුන් පහත අංකයට<br />
+          උසස් පෙළ වර්ෂය, නම සහ ලිපිනය සඳහන් කර<br />
+          <span class="green">WhatsApp</span> පණිවිඩයක් යොමු කරන්න.
+        </p>
+        <a href="https://wa.me/94740638741" class="join-phone" target="_blank" rel="noopener noreferrer">0740638741</a>
+      </div>
+    </section>
 
-<!-- How to Join -->
-        <section class="join-section" id="join">
-            <h2 class="section-title red">How to join?</h2>
-            <div class="join-box">
-                <p class="sinhala-text">
-                    පන්තියට සම්බන්ධ වීමට අවශ්‍ය සිසුන් පහත අංකයට<br>
-                    උසස් පෙළ වර්ෂය, නම සහ ලිපිනය සඳහන් කර<br> <span class="green">WhatsApp</span> පණිවිඩයක් යොමු කරන්න.
-                </p>
-                <a href="https://wa.me/94740638741" class="join-phone" target="_blank">0740638741</a>
-            </div>
-        </section>        
+    <!-- Past Papers -->
+    <section class="pastpapers-section" id="pastpapers">
+      <h2 class="section-title red">Past Papers</h2>
+      <div class="pastpapers-grid">
+        
+        <a href="pdf2/2015.pdf" class="pastpaper-btn" download><i class="fa-solid fa-download"></i> 2015</a>
+        <a href="pdf2/2016.pdf" class="pastpaper-btn" download><i class="fa-solid fa-download"></i> 2016</a>
+        <a href="pdf2/2017.pdf" class="pastpaper-btn" download><i class="fa-solid fa-download"></i> 2017</a>
+        <a href="pdf2/2018.pdf" class="pastpaper-btn" download><i class="fa-solid fa-download"></i> 2018</a>
+        <a href="pdf2/2019.pdf" class="pastpaper-btn" download><i class="fa-solid fa-download"></i> 2019</a>
+        <a href="pdf2/2020.pdf" class="pastpaper-btn" download><i class="fa-solid fa-download"></i> 2020</a>
+        <a href="pdf2/2021.pdf" class="pastpaper-btn" download><i class="fa-solid fa-download"></i> 2021</a>
+        <a href="pdf3/2022.pdf" class="pastpaper-btn" download><i class="fa-solid fa-download"></i> 2022</a>
+        <a href="pdf3/2023.pdf" class="pastpaper-btn" download><i class="fa-solid fa-download"></i> 2023</a>
+        <a href="pdf3/2024.pdf" class="pastpaper-btn" download><i class="fa-solid fa-download"></i> 2024</a>
+      </div>
+    </section>
+  </main>
 
-        <!-- Past Papers -->
-        <section class="pastpapers-section" id="pastpapers">
-            <h2 class="section-title red">Past Papers</h2>
-            <div class="pastpapers-grid">
-                
-                <a href="pdf2/2015.pdf" class="pastpaper-btn" download><i class="fa-solid fa-download"></i> 2015 A/L ICT Paper
-                <a href="pdf2/2016.pdf" class="pastpaper-btn" download><i class="fa-solid fa-download"></i> 2016 A/L ICT Paper
-                <a href="pdf2/2017.pdf" class="pastpaper-btn" download><i class="fa-solid fa-download"></i> 2017 A/L ICT Paper
-                <a href="pdf2/2018.pdf" class="pastpaper-btn" download><i class="fa-solid fa-download"></i> 2018 A/L ICT Paper
-                <a href="pdf2/2019.pdf" class="pastpaper-btn" download><i class="fa-solid fa-download"></i> 2019 A/L ICT Paper
-                <a href="pdf2/2020.pdf" class="pastpaper-btn" download><i class="fa-solid fa-download"></i> 2020 A/L ICT Paper
-                <a href="pdf2/2021.pdf" class="pastpaper-btn" download><i class="fa-solid fa-download"></i> 2021 A/L ICT Paper
-                <a href="pdf3/2022.pdf" class="pastpaper-btn" download><i class="fa-solid fa-download"></i> 2022 A/L ICT Paper
-                <a href="pdf3/2023.pdf" class="pastpaper-btn" download><i class="fa-solid fa-download"></i> 2023 A/L ICT Paper
-                <a href="pdf3/2024.pdf" class="pastpaper-btn" download><i class="fa-solid fa-download"></i> 2024 A/L ICT Paper
-</a>
-
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
+  <!-- Footer -->
+  <footer>
     <div class="footer-social">
-        <span>Follow Us On</span>
-        <a href="https://www.facebook.com/share/16YoDyP7e3/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
-            <img src="Assets/facebook.png" alt="Facebook">
-        </a>
-        <a href="https://www.instagram.com/hasitha_lakshan_03?igsh=OGw1MGJneG9jZDd4&utm_source=qr" target="_blank" rel="noopener noreferrer">
-            <img src="Assets/instagram.png" alt="Instagram">
-        </a>
-        <a href="https://www.youtube.com/@hasithalakshan-ict" target="_blank" rel="noopener noreferrer">
-            <img src="Assets/youtube.png" alt="YouTube">
-        </a>
-        <a href="https://www.linkedin.com/in/hasitha-lakshan-ict" target="_blank" rel="noopener noreferrer">
-            <img src="Assets/linkedin.png" alt="LinkedIn">
-        </a>
-        <a href="http://tiktok.com/@hasitha_lakshan_ict?_t=ZS-8w4rBDa5OnI&_r=1" target="_blank" rel="noopener noreferrer">
-            <img src="Assets/tiktok.png" alt="TikTok">
-        </a>
-        
-        
-
+      <span>Follow Us On :</span>
+      <a href="https://www.facebook.com/share/16YoDyP7e3/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+        <img src="Assets/facebook.png" alt="Facebook" />
+      </a>
+      <a href="https://www.instagram.com/hasitha_lakshan_03?igsh=OGw1MGJneG9jZDd4&utm_source=qr" target="_blank" rel="noopener noreferrer">
+        <img src="Assets/instagram.png" alt="Instagram" />
+      </a>
+      <a href="https://www.youtube.com/@hasithalakshan-ict" target="_blank" rel="noopener noreferrer">
+        <img src="Assets/youtube.png" alt="YouTube" />
+      </a>
+      <a href="https://www.linkedin.com/in/hasitha-lakshan-ict" target="_blank" rel="noopener noreferrer">
+        <img src="Assets/linkedin.png" alt="LinkedIn" />
+      </a>
+      <a href="http://tiktok.com/@hasitha_lakshan_ict?_t=ZS-8w4rBDa5OnI&_r=1" target="_blank" rel="noopener noreferrer">
+        <img src="Assets/tiktok.png" alt="TikTok" />
+      </a>
     </div>
 
-    <div class="copyright-text">
-    &copy; 2025 Hasitha Lakshan. All rights reserved.
-  </div>
-</footer>
+    <div class="copyright-text">&copy; 2025 Hasitha Lakshan. All rights reserved.</div>
+  </footer>
 
-    <script src="script.js"></script>
-    <script>
-  const cards = document.querySelectorAll('.timetable-card');
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);  // Stop observing once visible
-      }
-    });
-  }, { threshold: 0.1 });
-
-  cards.forEach(card => {
-    observer.observe(card);
-  });
-</script>
-
-<script>
-  // Your IntersectionObserver code here
-  const planSection = document.querySelector('.plan-section');
-
-  const observerPlan = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  observerPlan.observe(planSection);
-</script>
-
-<script>
-  const joinBox = document.querySelector('.join-box');
-
-  const observerJoin = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  if (joinBox) {
-    observerJoin.observe(joinBox);
-  }
-</script>
-
-
+  <!-- Scripts -->
+  <script src="script.js"></script>
 </body>
 </html>
-
-<script>
-  const titleElement = document.querySelector(".quote-title");
-  const subElement = document.querySelector(".quote-sub");
-
-  const fullText = "සොඳුරුතම\nඋසස් පෙළ\nICT\nගවේෂණය";
-  let i = 0;
-  let buffer = "";
-
-  // clear initial text
-  titleElement.innerHTML = "";
-  subElement.innerHTML = "";
-
-  function typeAll() {
-    if (i < fullText.length) {
-      const char = fullText.charAt(i);
-      if (i < 9) {
-        // first 10 chars go to title (roughly "සොඳුරුතම")
-        buffer += (char === "\n") ? "" : char;
-        titleElement.innerHTML = buffer;
-      } else {
-        const subChar = (char === "\n") ? "<br>" : char;
-        subElement.innerHTML += subChar;
-      }
-      i++;
-      setTimeout(typeAll, 70);
-    }
-  }
-
-  typeAll();
-</script>
-
