@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hasitha Lakshan - ICT</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    /* Variables */
+    :root {
+      --bg-color: #fff;
+      --text-color: #111;
+      --primary-color: #00aaff;
+      --secondary-color: #e30613;
+      --shadow-color: rgba(0,0,0,0.1);
+    }
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #ddd;
+      --primary-color: #3399ff;
+      --secondary-color: #ff4444;
+      --shadow-color: rgba(0,0,0,0.6);
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 5vw;
+      background: var(--bg-color);
+      position: sticky;
+      top: 0;
+      z-index: 10000;
+      box-shadow: 0 2px 6px var(--shadow-color);
+    }
+
+    .header-left .logo {
+      height: 80px;
+      max-width: 160px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--text-color);
+    }
+
+    #themeToggle {
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-color);
+      margin-left: 20px;
+    }
+    #themeToggle:hover {
+      color: var(--primary-color);
+    }
+
+    /* Fullstack Paper Discussions */
+    .fullstack-discuss {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .fullstack-discuss h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--secondary-color);
+    }
+
+    .video-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .video-card {
+      background: var(--bg-color);
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      max-width: 400px;
+      transition: background 0.3s;
+    }
+
+    .thumbnail {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .watch-btn {
+      margin-top: 10px;
+      padding: 8px 12px;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+      background-color: var(--primary-color);
+      color: #fff;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .watch-btn:hover {
+      background-color: var(--secondary-color);
+    }
+
+    /* Video Popup */
+    .video-popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .video-container {
+      position: relative;
+      width: 80%;
+      max-width: 800px;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 450px;
+      border-radius: 8px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: -35px;
+      right: 0;
+      background: transparent;
+      color: white;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <img src="Assets/Artboard 1.png" alt="Logo" class="logo" />
+    </div>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html"><b>Timetable</b></a>
+      <a href="index.html"><b>Our Plan</b></a>
+      <a href="index.html"><b>How to Join</b></a>
+      <a href="index.html"><b>Past Papers</b></a>
+      <a href="index.html"><b>Fullstack Papers</b></a>
+      
+      <a href="#discuss"><b>Paper Discussions</b></a>
+    </nav>
+
+    <div>
+      <button id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Fullstack Paper Discussions -->
+  <section id="fullstack-discuss" class="fullstack-discuss">
+    <h2>Fullstack Paper Discussions</h2>
+    <div class="video-grid">
+      <div class="video-card">
+        <img src="Thumbnails/1.jpg" alt="Fullstack Paper Discussion 1" class="thumbnail" />
+        <button class="watch-btn" onclick="openVideo('https://www.youtube.com/embed/a6aGBbjKwwk?start=67')">
+          Watch
+        </button>
+      </div>
+      <div class="video-card">
+        <img src="Thumbnails/2.jpg" alt="Fullstack Paper Discussion 2" class="thumbnail" />
+        <button class="watch-btn" onclick="openVideo('https://www.youtube.com/embed/a6aGBbjKwwk?start=67')">
+          Watch
+        </button>
+      </div>
+         <div class="video-card">
+        <img src="Thumbnails/3.jpg" alt="Fullstack Paper Discussion 3" class="thumbnail" />
+        <button class="watch-btn" onclick="openVideo('https://www.youtube.com/embed/a6aGBbjKwwk?start=67')">
+          Watch
+        </button>
+     </div>   
+          <div class="video-card">
+        <img src="Thumbnails/4.jpg" alt="Fullstack Paper Discussion 4" class="thumbnail" />
+        <button class="watch-btn" onclick="openVideo('https://www.youtube.com/embed/a6aGBbjKwwk?start=67')">
+          Watch
+        </button>
+     </div>   
+          <div class="video-card">
+        <img src="Thumbnails/5.jpg" alt="Fullstack Paper Discussion 5" class="thumbnail" />
+        <button class="watch-btn" onclick="openVideo('https://www.youtube.com/embed/a6aGBbjKwwk?start=67')">
+          Watch
+        </button>
+     </div>   
+          <div class="video-card">
+        <img src="Thumbnails/6.jpg" alt="Fullstack Paper Discussion 6" class="thumbnail" />
+        <button class="watch-btn" onclick="openVideo('https://www.youtube.com/embed/a6aGBbjKwwk?start=67')">
+          Watch
+        </button>
+     </div>   
+           <div class="video-card">
+        <img src="Thumbnails/7.jpg" alt="Fullstack Paper Discussion 7" class="thumbnail" />
+        <button class="watch-btn" onclick="openVideo('https://www.youtube.com/embed/a6aGBbjKwwk?start=67')">
+          Watch
+        </button>
+     </div>    
+            <div class="video-card">
+        <img src="Thumbnails/8.jpg" alt="Fullstack Paper Discussion 8" class="thumbnail" />
+        <button class="watch-btn" onclick="openVideo('https://www.youtube.com/embed/a6aGBbjKwwk?start=67')">
+          Watch
+        </button>
+     </div>   
+    </div>
+
+    <div id="videoPopup" class="video-popup">
+      <div class="video-container">
+        <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+        <button class="close-btn" onclick="closeVideo()">✖</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      if (document.documentElement.getAttribute("data-theme") === "dark") {
+        document.documentElement.removeAttribute("data-theme");
+        themeToggle.textContent = '🌙';
+      } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+        themeToggle.textContent = '☀️';
+      }
+    });
+
+    // Video Popup
+    function openVideo(url) {
+      document.getElementById('videoPopup').style.display = 'flex';
+      document.getElementById('videoFrame').src = url;
+    }
+    function closeVideo() {
+      document.getElementById('videoPopup').style.display = 'none';
+      document.getElementById('videoFrame').src = '';
+    }
+
+    // Hamburger Toggle
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navLinks = document.getElementById('navLinks');
+    hamburgerBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('mobile-active');
+    });
+  </script>
+</body>
+</html>
