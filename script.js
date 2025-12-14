@@ -77,3 +77,35 @@ toggleBtn.addEventListener('click', () => {
     localStorage.setItem('theme', 'dark');
   }
 });
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const snowContainer = document.body;
+  
+  function createSnowflake() {
+    const snowflake = document.createElement("div");
+    snowflake.classList.add("snowflake");
+    snowflake.innerHTML = "❄"; 
+    
+    // Randomize position, size, and speed
+    snowflake.style.left = Math.random() * 100 + "vw";
+    snowflake.style.fontSize = Math.random() * 10 + 10 + "px"; 
+    snowflake.style.animationDuration = Math.random() * 3 + 2 + "s"; 
+    snowflake.style.opacity = Math.random();
+    
+    snowContainer.appendChild(snowflake);
+    
+    // Remove snowflake after it falls to keep the site fast
+    setTimeout(() => {
+      snowflake.remove();
+    }, 5000);
+  }
+
+  // Create a new snowflake every 100 milliseconds
+  setInterval(createSnowflake, 100);
+});
