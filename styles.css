@@ -662,3 +662,30 @@ header nav {
   transform: translateY(0);
 }
 
+
+
+
+
+
+
+
+
+
+.snowflake {
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  user-select: none;
+  cursor: default;
+  animation-name: snowfall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  color: white; /* Change color here */
+}
+
+@keyframes snowfall {
+  0% { transform: translateY(-10px); }
+  100% { transform: translateY(100vh); }
+}
+
+
