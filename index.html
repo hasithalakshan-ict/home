@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyB1lEt7xn8WwcOfjSVFlbnpjdtL_bKSCuQ",
+    authDomain: "hasitha-ict-lms.firebaseapp.com",
+    projectId: "hasitha-ict-lms",
+    storageBucket: "hasitha-ict-lms.firebasestorage.app",
+    messagingSenderId: "394884612834",
+    appId: "1:394884612834:web:e0b5dc0060a386811414bb",
+    measurementId: "G-J7XJZWEXRD"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hasitha Lakshan ICT - සිහින වලට ICT</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;900&family=Noto+Sans+Sinhala:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --red: #D32F2F;
+  --red-dark: #B71C1C;
+  --red-light: #FFCDD2;
+  --blue: #1565C0;
+  --blue-dark: #0D47A1;
+  --blue-light: #BBDEFB;
+  --white: #ffffff;
+  --bg: #f5f7fa;
+  --text: #1a1a2e;
+  --text-muted: #555;
+  --card-bg: #ffffff;
+  --nav-h: 72px;
+  --radius: 12px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.10);
+  --shadow-hover: 0 8px 32px rgba(21,101,192,0.18);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
+
+/* ──────────── NAV ──────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: var(--nav-h);
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid var(--red);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem;
+  box-shadow: 0 2px 16px rgba(211,47,47,0.08);
+}
+
+.nav-logo {
+  display: flex; align-items: center; gap: 12px;
+}
+
+.nav-logo img {
+  height: 52px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.12));
+}
+
+.nav-links {
+  display: flex; align-items: center; gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute; bottom: -3px; left: 0; right: 0;
+  height: 2px; background: var(--red);
+  transform: scaleX(0); transition: transform 0.2s;
+}
+
+.nav-links a:hover { color: var(--red); }
+.nav-links a:hover::after { transform: scaleX(1); }
+
+.nav-btn {
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  color: white !important;
+  padding: 8px 20px;
+  border-radius: 24px;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  transition: transform 0.2s, box-shadow 0.2s !important;
+  box-shadow: 0 2px 8px rgba(211,47,47,0.3);
+}
+
+.nav-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(211,47,47,0.4) !important;
+}
+
+.nav-btn::after { display: none !important; }
+
+.hamburger {
+  display: none;
+  flex-direction: column; gap: 5px; cursor: pointer;
+  background: none; border: none;
+}
+
+.hamburger span {
+  width: 24px; height: 2px;
+  background: var(--text); border-radius: 2px; transition: 0.3s;
+}
+
+/* ──────────── HERO ──────────── */
+.hero {
+  min-height: 100vh;
+  padding-top: var(--nav-h);
+  background: linear-gradient(160deg, #1877F2 0%, #0a5fd8 50%, #0a3d8f 100%);
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.hero-inner {
+  max-width: 1200px; margin: 0 auto; padding: 4rem 2rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  position: relative; z-index: 1;
+}
+
+.hero-text { color: white; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 24px;
+  padding: 6px 16px;
+  font-size: 0.8rem; font-weight: 500;
+  margin-bottom: 1.5rem; letter-spacing: 0.05em;
+  backdrop-filter: blur(8px);
+}
+
+.hero-badge i { color: #FFD54F; }
+
+.hero-sinhala {
+  font-family: 'Noto Sans Sinhala', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+
+.hero-sinhala span { color: #FFD54F; }
+
+.hero-ict {
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 900;
+  font-family: 'Raleway', sans-serif;
+  color: #FFD54F;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+.hero-desc {
+  font-size: 1rem; line-height: 1.7;
+  color: rgba(255,255,255,0.88);
+  margin-bottom: 2rem; max-width: 480px;
+}
+
+.hero-grade-tags {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2rem;
+}
+
+.grade-tag {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 0.78rem; font-weight: 500;
+  backdrop-filter: blur(4px);
+}
+
+.hero-btns {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--red);
+  color: white; text-decoration: none;
+  padding: 12px 28px; border-radius: 30px;
+  font-weight: 600; font-size: 0.9rem;
+  box-shadow: 0 4px 16px rgba(211,47,47,0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: inline-flex; align-items: center; gap: 8px;
+  border: none; cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(211,47,47,0.5);
+}
+
+.btn-outline {
+  background: transparent;
+  color: white; text-decoration: none;
+  padding: 12px 28px; border-radius: 30px;
+  font-weight: 600; font-size: 0.9rem;
+  border: 2px solid rgba(255,255,255,0.6);
+  transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 8px;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: white;
+}
+
+.hero-image-wrap {
+  position: relative; display: flex; justify-content: center;
+}
+
+.hero-image-ring {
+  width: 380px; height: 380px;
+  border-radius: 50%;
+  border: 4px solid rgba(255,255,255,0.2);
+  padding: 8px;
+  position: relative;
+  animation: spin-slow 20s linear infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero-image-inner {
+  width: 100%; height: 100%;
+  border-radius: 50%; overflow: hidden;
+  border: 4px solid rgba(255,255,255,0.4);
+  animation: spin-slow 20s linear infinite reverse;
+}
+
+.hero-image-inner img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top;
+}
+
+.hero-float-card {
+  position: absolute;
+  background: white; border-radius: 12px;
+  padding: 10px 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  font-size: 0.8rem; font-weight: 600;
+  display: flex; align-items: center; gap: 8px;
+  color: var(--text);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.hero-float-card.card1 { bottom: 60px; left: -20px; animation-delay: 0s; }
+.hero-float-card.card2 { top: 60px; right: -20px; animation-delay: 1.5s; }
+.hero-float-card i { color: var(--blue); font-size: 1.1rem; }
+
+.hero-stats {
+  display: flex; gap: 2rem; margin-top: 2.5rem;
+}
+
+.stat-item { text-align: center; }
+.stat-num {
+  font-size: 1.8rem; font-weight: 900; font-family: 'Raleway', sans-serif;
+  color: #FFD54F; line-height: 1;
+}
+.stat-label { font-size: 0.72rem; color: rgba(255,255,255,0.7); margin-top: 2px; }
+
+/* ──────────── SECTIONS ──────────── */
+.section { padding: 5rem 2rem; }
+.section-light { background: white; }
+.section-gray { background: var(--bg); }
+
+.section-header { text-align: center; margin-bottom: 3rem; }
+
+.section-tag {
+  display: inline-block;
+  background: var(--red-light);
+  color: var(--red-dark);
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 4px 16px; border-radius: 20px;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 800; line-height: 1.2;
+  color: var(--text);
+}
+
+.section-title span { color: var(--red); }
+
+.section-sub {
+  font-size: 1rem; color: var(--text-muted);
+  max-width: 540px; margin: 0.75rem auto 0; line-height: 1.7;
+}
+
+.container { max-width: 1200px; margin: 0 auto; }
+
+/* ──────────── ABOUT ──────────── */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+}
+
+.about-img-wrap {
+  position: relative;
+}
+
+.about-img-wrap img {
+  width: 100%; border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.about-badge {
+  position: absolute; bottom: -20px; right: -20px;
+  background: var(--red); color: white;
+  border-radius: 16px; padding: 16px 20px;
+  box-shadow: 0 4px 16px rgba(211,47,47,0.4);
+  text-align: center;
+}
+
+.about-badge .num { font-size: 1.8rem; font-weight: 900; font-family: 'Raleway', sans-serif; }
+.about-badge .lbl { font-size: 0.72rem; opacity: 0.9; }
+
+.about-text h2 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2rem; font-weight: 800; margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.about-text h2 span { color: var(--red); }
+
+.about-text p { color: var(--text-muted); line-height: 1.8; margin-bottom: 1rem; }
+
+.qualification-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--blue-light); color: var(--blue-dark);
+  border-radius: 8px; padding: 8px 16px;
+  font-size: 0.82rem; font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.qualification-chip i { color: var(--blue); }
+
+.medium-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 1.2rem; }
+
+.medium-tag {
+  padding: 6px 18px; border-radius: 20px;
+  font-size: 0.82rem; font-weight: 600;
+}
+
+.medium-tag.en { background: var(--blue-light); color: var(--blue-dark); }
+.medium-tag.si { background: var(--red-light); color: var(--red-dark); font-family: 'Noto Sans Sinhala', sans-serif; }
+
+/* ──────────── TIMETABLE ──────────── */
+.timetable-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;
+}
+
+.timetable-card {
+  background: white;
+  border-radius: var(--radius);
+  border: 1px solid #e8ecf0;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.timetable-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.tt-header {
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  color: white; padding: 16px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.tt-day { font-weight: 700; font-size: 1rem; }
+.tt-icon { font-size: 1.4rem; opacity: 0.8; }
+
+.tt-body { padding: 1rem 1.25rem; }
+
+.tt-slot {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.tt-slot:last-child { border-bottom: none; }
+
+.tt-time-block {
+  background: var(--red-light); color: var(--red-dark);
+  border-radius: 8px; padding: 4px 10px;
+  font-size: 0.75rem; font-weight: 600;
+  white-space: nowrap; min-width: 80px; text-align: center;
+}
+
+.tt-info { flex: 1; }
+.tt-class { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+.tt-medium { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
+
+.tt-medium .dot {
+  display: inline-block; width: 6px; height: 6px;
+  border-radius: 50%; margin-right: 4px; vertical-align: middle;
+}
+
+.dot-en { background: var(--blue); }
+.dot-si { background: var(--red); }
+
+.tt-edit-note {
+  text-align: center; margin-top: 2rem;
+  color: var(--text-muted); font-size: 0.85rem;
+  background: var(--blue-light); padding: 10px 20px;
+  border-radius: 8px; display: inline-block;
+  color: var(--blue-dark);
+}
+
+/* ──────────── YOUTUBE LESSONS ──────────── */
+.lessons-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;
+}
+
+.lesson-card {
+  background: white; border-radius: var(--radius);
+  overflow: hidden; box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid #e8ecf0;
+  cursor: pointer;
+}
+
+.lesson-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.lesson-thumb {
+  position: relative; padding-bottom: 56.25%;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  overflow: hidden;
+}
+
+.lesson-thumb-inner {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 8px;
+}
+
+.yt-play {
+  width: 56px; height: 56px;
+  background: #FF0000; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.2s;
+}
+
+.lesson-card:hover .yt-play { transform: scale(1.1); }
+.yt-play i { color: white; font-size: 1.4rem; margin-left: 4px; }
+
+.lesson-num {
+  color: rgba(255,255,255,0.4); font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.lesson-body { padding: 1rem 1.25rem; }
+
+.lesson-grade {
+  display: inline-block;
+  background: var(--blue-light); color: var(--blue-dark);
+  font-size: 0.72rem; font-weight: 600;
+  padding: 3px 10px; border-radius: 10px; margin-bottom: 6px;
+}
+
+.lesson-title {
+  font-size: 0.9rem; font-weight: 600; color: var(--text);
+  line-height: 1.4; margin-bottom: 6px;
+}
+
+.lesson-meta {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 0.75rem; color: var(--text-muted);
+}
+
+.lesson-meta i { font-size: 0.8rem; }
+
+.lesson-edit-note {
+  text-align: center; margin-top: 1.5rem;
+  color: var(--text-muted); font-size: 0.82rem;
+}
+
+/* ──────────── GALLERY ──────────── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.gallery-item {
+  border-radius: 10px;
+  overflow: hidden;
+  height: 250px;
+  position: relative;
+  background: #111;
+}
+
+.gallery-item.large {
+  grid-column: span 2;
+  grid-row: span 2;
+  height: 512px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.gallery-item:hover { transform: scale(1.03); }
+
+
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position:  top center;
+}
+
+.gallery-item:hover { transform: scale(1.03); }
+
+
+
+
+.gallery-placeholder {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  color: var(--blue-dark); opacity: 0.5;
+}
+
+.gallery-placeholder i { font-size: 2rem; }
+.gallery-placeholder span { font-size: 0.75rem; font-weight: 500; }
+
+.gallery-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.6));
+  opacity: 0; transition: opacity 0.2s;
+  display: flex; align-items: flex-end; padding: 12px;
+}
+
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-overlay-text { color: white; font-size: 0.8rem; font-weight: 500; }
+
+/* ──────────── TESTIMONIALS ──────────── */
+.testimonials-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;
+}
+
+.testimonial-card {
+  background: white; border-radius: var(--radius);
+  padding: 1.5rem; box-shadow: var(--shadow);
+  border: 1px solid #e8ecf0;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.testimonial-card::before {
+  content: '"';
+  position: absolute; top: -8px; left: 20px;
+  font-size: 5rem; line-height: 1;
+  font-family: Georgia, serif;
+  color: var(--red-light);
+  z-index: 0;
+}
+
+.testimonial-text {
+  font-size: 0.9rem; line-height: 1.7;
+  color: var(--text-muted); position: relative; z-index: 1;
+  margin-bottom: 1.25rem;
+}
+
+.testimonial-author {
+  display: flex; align-items: center; gap: 12px;
+}
+
+.author-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.author-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.author-name { font-weight: 600; font-size: 0.9rem; color: var(--text); }
+.author-grade { font-size: 0.75rem; color: var(--text-muted); }
+
+.stars { color: #FFC107; font-size: 0.85rem; margin-bottom: 4px; }
+
+/* ──────────── LOGIN MODAL ──────────── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 2000;
+  background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+  align-items: center; justify-content: center;
+  padding: 1rem;
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal {
+  background: white; border-radius: 20px;
+  padding: 2.5rem; width: 100%; max-width: 420px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.2);
+  position: relative; animation: modal-in 0.3s ease;
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-close {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--bg); border: none; border-radius: 50%;
+  width: 32px; height: 32px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; color: var(--text-muted);
+  transition: background 0.2s;
+}
+
+.modal-close:hover { background: #e8ecf0; }
+
+.modal-logo {
+  text-align: center; margin-bottom: 1.5rem;
+}
+
+.modal-logo h3 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5rem; font-weight: 800;
+  color: var(--text);
+}
+
+.modal-logo p { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+
+.modal-tabs {
+  display: flex; gap: 0; margin-bottom: 1.5rem;
+  background: var(--bg); border-radius: 10px; padding: 4px;
+}
+
+.modal-tab {
+  flex: 1; text-align: center; padding: 8px;
+  font-size: 0.85rem; font-weight: 600; cursor: pointer;
+  border-radius: 8px; transition: all 0.2s;
+  color: var(--text-muted); border: none; background: none;
+}
+
+.modal-tab.active {
+  background: white; color: var(--red);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.form-group { margin-bottom: 1rem; }
+
+.form-group label {
+  display: block; font-size: 0.82rem;
+  font-weight: 500; color: var(--text); margin-bottom: 6px;
+}
+
+.form-group input, .form-group select {
+  width: 100%; padding: 10px 14px;
+  border: 1.5px solid #e0e0e0; border-radius: 10px;
+  font-size: 0.9rem; font-family: 'Poppins', sans-serif;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.form-group input:focus { border-color: var(--blue); }
+
+.form-submit {
+  width: 100%;
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  color: white; border: none; border-radius: 10px;
+  padding: 12px; font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+  font-family: 'Poppins', sans-serif; margin-top: 0.5rem;
+}
+
+.form-submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(211,47,47,0.35);
+}
+
+.form-panel { display: none; }
+.form-panel.active { display: block; }
+
+.firebase-note {
+  background: var(--blue-light); border-radius: 8px;
+  padding: 10px 14px; margin-top: 1rem;
+  font-size: 0.78rem; color: var(--blue-dark); line-height: 1.5;
+}
+
+.firebase-note strong { display: block; margin-bottom: 2px; }
+
+/* ──────────── FOOTER ──────────── */
+footer {
+  background: #0d1b2a;
+  color: rgba(255,255,255,0.8);
+  padding: 3rem 2rem 1.5rem;
+}
+
+.footer-inner {
+  max-width: 1200px; margin: 0 auto;
+}
+
+.footer-top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-brand h3 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.4rem; font-weight: 800;
+  color: white; margin-bottom: 0.5rem;
+}
+
+.footer-brand p { font-size: 0.85rem; line-height: 1.7; max-width: 300px; }
+
+.footer-brand .sinhala-text {
+  font-family: 'Noto Sans Sinhala', sans-serif;
+  font-size: 1rem; color: #FFD54F; font-weight: 600; margin-bottom: 4px;
+}
+
+.footer-col h4 {
+  color: white; font-size: 0.9rem; font-weight: 600;
+  margin-bottom: 1rem; letter-spacing: 0.04em;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 8px; }
+.footer-col ul li a {
+  color: rgba(255,255,255,0.65); text-decoration: none;
+  font-size: 0.85rem; transition: color 0.2s;
+}
+.footer-col ul li a:hover { color: #FFD54F; }
+
+.footer-social {
+  display: flex; gap: 12px; margin-top: 1.5rem;
+}
+
+.social-btn {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; font-size: 1rem;
+  transition: transform 0.2s, background 0.2s;
+  color: white;
+}
+
+.social-btn:hover { transform: translateY(-2px); }
+.social-btn.fb { background: #1877F2; }
+.social-btn.ig { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.social-btn.tt { background: #000; border: 1px solid rgba(255,255,255,0.2); }
+.social-btn.yt { background: #FF0000; }
+.social-btn.wa { background: #25D366; }
+
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+  font-size: 0.8rem; color: rgba(255,255,255,0.45);
+}
+
+.footer-bottom a { color: rgba(255,255,255,0.65); text-decoration: none; }
+
+/* ──────────── MOBILE ──────────── */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+  .hero-image-wrap { order: -1; }
+  .hero-image-ring { width: 260px; height: 260px; }
+  .hero-stats { justify-content: center; }
+  .hero-btns { justify-content: center; }
+  .hero-grade-tags { justify-content: center; }
+  .hero-desc { margin: 0 auto 2rem; }
+  .hero-float-card { display: none; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-badge { bottom: 10px; right: 10px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-item.large { grid-column: span 2; }
+  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+  .nav-links { display: none; flex-direction: column; position: absolute; top: var(--nav-h); left: 0; right: 0; background: white; padding: 1rem 2rem; box-shadow: 0 8px 24px rgba(0,0,0,0.1); gap: 1rem; }
+  .nav-links.open { display: flex; }
+  .hamburger { display: flex; }
+}
+
+@media (max-width: 600px) {
+  .section { padding: 3.5rem 1.25rem; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .timetable-grid { grid-template-columns: 1fr; }
+  .lessons-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+  .lessons-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <img src="logo.png" alt="Hasitha ICT Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+    <div style="display:none; align-items:center; gap:6px; font-family:'Raleway',sans-serif; font-weight:900; font-size:1.1rem;">
+      <span style="color:var(--red)">සිහින</span>
+      <span style="color:var(--blue)">ICT</span>
+    </div>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#timetable">Timetable</a></li>
+    <li><a href="#lessons">Free Lessons</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#" class="nav-btn" onclick="openModal('login'); return false;">Student Login</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <i class="fas fa-graduation-cap"></i>
+        <span>BSc.(Hons) IT · SLIIT · Interactive Media</span>
+      </div>
+      <div class="hero-sinhala">සිහින වලට</div>
+      <div class="hero-ict">ICT...</div>
+      <p class="hero-desc">
+        VR Engineer - <strong>Hasitha Lakshan</strong>, is providing Quality ICT education for Grade 6 - 11 & A/L students in both Sinhala & English medium. Get ready to chase your dream through the subject knowledge & industry updates right now.
+      </p>
+      <div class="hero-grade-tags">
+        <span class="grade-tag">Grade 6–11</span>
+        <span class="grade-tag">A/L ICT</span>
+        <span class="grade-tag">English Medium</span>
+        <span class="grade-tag">සිංහල මාධ්‍යය</span>
+      </div>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="openModal('register')">
+          <i class="fas fa-user-plus"></i> Enroll Now
+        </button>
+        <a href="#lessons" class="btn-outline">
+          <i class="fab fa-youtube"></i> Free Lessons
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Students</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">8</div>
+          <div class="stat-label">Grade Levels</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">30+</div>
+          <div class="stat-label">Video Lessons</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-image-wrap">
+      <div class="hero-image-ring">
+        <div class="hero-image-inner">
+          <img src="teacher.jpg" alt="Hasitha Lakshan" onerror="this.style.background='linear-gradient(135deg,#1565C0,#D32F2F)'; this.style.objectFit='contain';">
+        </div>
+      </div>
+      <div class="hero-float-card card1">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <span>VR Engineer</span>
+      </div>
+      <div class="hero-float-card card2">
+        <i class="fas fa-star" style="color:#FFC107"></i>
+        <span>Certified Results</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section section-light" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img src="Tiktok.jpeg" alt="Hasitha Lakshan" style="max-height:480px; width:100%; object-fit:cover; object-position:top;"
+          onerror="this.style.background='linear-gradient(135deg,#BBDEFB,#FFCDD2)'; this.style.minHeight='360px';">
+        <div class="about-badge">
+          <div class="num">3+</div>
+          <div class="lbl">Years Teaching</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="section-tag">About the Teacher</div>
+        <h2>ගුරුවරයා  <span>ගැන...</span></h2>
+        <div class="qualification-chip">
+          <i class="fas fa-university"></i>
+          BSc.(Hons) IT · Interactive Media · SLIIT
+        </div>
+        <p>
+          2022 උසස් පෙළ විභාගයට ඉංජිනේරු තාක්ෂණවේදය විෂය ධාරාවෙන් පෙනී සිට ICT විෂයට A සාමාර්ථයක් හා ඉහල Z අගයක් ලබා ගනිමින් රත්නපුර දිස්ත්‍රික් කුසලතාවක් සමගින් රාජ්‍ය විශ්ව විද්‍යාල ප්‍රවේශය හිමි කරගන්නට ඔහු සමත් විය. නමුත් උසස් පෙළ ප්‍රතිපල පැමිණීමටත් පෙර ඔහු මාලබේ ශ්‍රී ලංකා තොරතුරු තාක්ෂණ සරසවියට (SLIIT) ඇතුළු වී VR තාක්ෂණය පිළිබද සිය උපාධිය ආරම්භ කළේ එම තාක්ෂණය හැදෑරීමට ඔහු තුල තිබූ දැඩි උනන්දුව නිසාවෙනි.
+        </p>
+        <p>
+          මේ වන විට ඔහු විශ්ව විද්‍යාලයේ අවසන් වසර අධ්‍යයන කටයුතු සිදු කරමින් සිටින අතර, සුවහසක් සිසුන්ගේ දැනුම වැඩි දියුණු කරමින් ඔවුන්ගේ අනාගතය ඉහළ මට්ටමකට ඔසවා තැබීමේ පරම අභිලාෂයෙන් "සිහින වලට ICT" ව්‍යාපෘතියට සාර්ථකව නායකත්වය ලබා දෙමින් සිටියි. 
+        </p>
+        <p style="font-family:'Noto Sans Sinhala',sans-serif; color:var(--red-dark); font-weight:600; font-size:1rem;">
+          උපාධියට අමතරව විෂය ඉගැන්වීමට ගුරුවරයාට ඇති 👉 
+<a href="https://www.linkedin.com/in/hasitha-lakshan-ict/details/certifications/" target="_blank" rel="noopener noreferrer">
+සුදුසුකම්
+</a>
+        </p>
+        <div class="medium-tags">
+          <span class="medium-tag en"><i class="fas fa-language"></i> &nbsp;English Medium</span>
+          <span class="medium-tag si">සිංහල මාධ්‍යය</span>
+          <span class="medium-tag en" style="background:var(--red-light);color:var(--red-dark);">O/L ICT</span>
+          <span class="medium-tag en" style="background:var(--red-light);color:var(--red-dark);">A/L ICT</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMETABLE -->
+<section class="section section-gray" id="timetable">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Schedule</div>
+      <h2 class="section-title">Online Class <span>Timetable</span></h2>
+      <p class="section-sub">Weekly class schedule</p>
+    </div>
+    <div class="timetable-grid">
+
+      <!-- Monday -->
+      <div class="timetable-card">
+        <div class="tt-header" style="background:linear-gradient(135deg,#1565C0,#0D47A1);">
+          <span class="tt-day">Monday</span>
+          <i class="fas fa-calendar-day tt-icon"></i>
+        </div>
+        <div class="tt-body">
+          <div class="tt-slot">
+            <div class="tt-time-block">3:00 PM</div>
+            <div class="tt-info">
+              <div class="tt-class">Grade 10 ICT</div>
+              <div class="tt-medium"><span class="dot dot-en"></span>Sinhala Medium</div>
+            </div>
+          </div>
+          <div class="tt-slot">
+            <div class="tt-time-block">5:00 PM</div>
+            <div class="tt-info">
+              <div class="tt-class">Grade 11 ICT</div>
+              <div class="tt-medium"><span class="dot dot-si"></span>Sinhala Medium</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tuesday -->
+      <div class="timetable-card">
+        <div class="tt-header" style="background:linear-gradient(135deg,#D32F2F,#B71C1C);">
+          <span class="tt-day">Tuesday</span>
+          <i class="fas fa-calendar-day tt-icon"></i>
+        </div>
+        <div class="tt-body">
+          <div class="tt-slot">
+            <div class="tt-time-block">3:00 PM</div>
+            <div class="tt-info">
+              <div class="tt-class">Grade 6 ICT</div>
+              <div class="tt-medium"><span class="dot dot-en"></span>English Medium</div>
+            </div>
+          </div>
+          <div class="tt-slot">
+            <div class="tt-time-block">5:00 PM</div>
+            <div class="tt-info">
+              <div class="tt-class">2027 A/L ICT - Theory</div>
+              <div class="tt-medium"><span class="dot dot-si"></span>Sinhala Medium</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wednesday -->
+      <div class="timetable-card">
+        <div class="tt-header" style="background:linear-gradient(135deg,#1565C0,#0D47A1);">
+          <span class="tt-day">Wednesday</span>
+          <i class="fas fa-calendar-day tt-icon"></i>
+        </div>
+        <div class="tt-body">
+          <div class="tt-slot">
+            <div class="tt-time-block">3:00 PM</div>
+            <div class="tt-info">
+              <div class="tt-class">Grade 7 ICT</div>
+              <div class="tt-medium"><span class="dot dot-en"></span>English Medium</div>
+            </div>
+          </div>
+          <div class="tt-slot">
+            <div class="tt-time-block">5:00 PM</div>
+            <div class="tt-info">
+              <div class="tt-class">2028 A/L ICT - Theory</div>
+              <div class="tt-medium"><span class="dot dot-si"></span>Sinhala Medium</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thursday -->
+      <div class="timetable-card">
+        <div class="tt-header" style="background:linear-gradient(135deg,#D32F2F,#B71C1C);">
+          <span class="tt-day">Thursday</span>
+          <i class="fas fa-calendar-day tt-icon"></i>
+        </div>
+        <div class="tt-body">
+          <div class="tt-slot">
+            <div class="tt-time-block">3:00 PM</div>
+            <div class="tt-info">
+              <div class="tt-class">Grade 8 ICT</div>
+              <div class="tt-medium"><span class="dot dot-en"></span>English Medium</div>
+            </div>
+          </div>
+          <div class="tt-slot">
+            <div class="tt-time-block">5:00 PM</div>
+            <div class="tt-info">
+              <div class="tt-class">Grade 9 ICT</div>
+              <div class="tt-medium"><span class="dot dot-si"></span>English Medium</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Friday -->
+      <div class="timetable-card">
+        <div class="tt-header" style="background:linear-gradient(135deg,#1565C0,#0D47A1);">
+          <span class="tt-day">Friday</span>
+          <i class="fas fa-calendar-day tt-icon"></i>
+        </div>
+        <div class="tt-body">
+          <div class="tt-slot">
+            <div class="tt-time-block">3:00 PM</div>
+            <div class="tt-info">
+              <div class="tt-class">Grade 10 ICT</div>
+              <div class="tt-medium"><span class="dot dot-en"></span>English Medium</div>
+            </div>
+          </div>
+          <div class="tt-slot">
+            <div class="tt-time-block">5:00 PM</div>
+            <div class="tt-info">
+              <div class="tt-class">Grade 11 ICT</div>
+              <div class="tt-medium"><span class="dot dot-si"></span>English Medium</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Saturday -->
+      <div class="timetable-card">
+        <div class="tt-header" style="background:linear-gradient(135deg,#D32F2F,#B71C1C);">
+          <span class="tt-day">Saturday</span>
+          <i class="fas fa-calendar-day tt-icon"></i>
+        </div>
+        <div class="tt-body">
+          <div class="tt-slot">
+            <div class="tt-time-block">7:00 PM</div>
+            <div class="tt-info">
+              <div class="tt-class">2027 A/L ICT -Revision </div>
+              <div class="tt-medium"><span class="dot dot-en"></span>English Medium</div>
+            </div>
+          </div>
+          
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center; margin-top:2rem;">
+      <div class="tt-edit-note">
+        <i class="fas fa-info-circle"></i>
+        &nbsp; Timetable is subjected to change. Contact via 
+<a href="https://wa.me/94740638741" target="_blank" rel="noopener noreferrer">
+WhatsApp
+</a> for latest schedule.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FREE LESSONS -->
+<section class="section section-light" id="lessons">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">YouTube</div>
+      <h2 class="section-title">Free <span>Video Lessons</span></h2>
+      <p class="section-sub">Watch and decide whether our teaching pattern suits you...</p>
+    </div>
+    <div class="lessons-grid" id="lessonsGrid">
+      <!-- 15 lesson cards -->
+    </div>
+    <p class="lesson-edit-note">
+      
+     
+    </p>
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="https://www.youtube.com/@hasithalakshan-ict" target="_blank" class="btn-primary" style="display:inline-flex; text-decoration:none;">
+        <i class="fab fa-youtube"></i> View All on YouTube
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section section-gray" id="gallery">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Memories</div>
+      <h2 class="section-title">Special <span>Moments</span></h2>
+      <p class="section-sub">Blessed | Lead | Achieved | Updated</p>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      
+
+  <div class="gallery-item large">
+    <img src="photo 1.jpg" alt="">
+    <div class="gallery-overlay"><span class="gallery-overlay-text">සම්බුද්ධ ශාසනයේ චිරස්තිථිය වෙනුවෙන්☸️✨</span></div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="photo 2.jpg" alt="">
+    <div class="gallery-overlay"><span class="gallery-overlay-text">IIT 3D Animation Certificate Awarding Ceremony</span></div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="photo 8.jpg" alt="">
+    <div class="gallery-overlay"><span class="gallery-overlay-text">Team Lead - SLIIT Codefest Designathon 2025</span></div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="photo 3.jpeg" alt="">
+    <div class="gallery-overlay"><span class="gallery-overlay-text">2026 දෙරණ අවුරුදු කුමරා - දෙවන වටය</span></div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="photo 4.jpeg" alt="">
+    <div class="gallery-overlay"><span class="gallery-overlay-text">At SLIIT VR Exhibition</span></div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="photo 5.jpeg" alt="">
+    <div class="gallery-overlay"><span class="gallery-overlay-text">Ratatouille Movie Dubbing</span></div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="photo 7.jpg" alt="">
+    <div class="gallery-overlay"><span class="gallery-overlay-text">2026 A/L Special Seminar - Athurugiriya </span></div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="photo 6.jpeg" alt="">
+    <div class="gallery-overlay"><span class="gallery-overlay-text">Exploring knowledgebase at SLIIT Library</span></div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="photo 9.jpg" alt="">
+    <div class="gallery-overlay"><span class="gallery-overlay-text">IM Third Year - Last Day</span></div>
+  </div>
+
+</div>
+    </div>
+    <p style="text-align:center; margin-top:1.5rem; color:var(--text-muted); font-size:0.82rem;">
+      
+    </p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section section-light" id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Student Reviews</div>
+      <h2 class="section-title">Hear <span>from our students</span></h2>
+      <p class="section-sub">Feedback from students</p>
+    </div>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">මම කැමතිම සර් පාඩම පැහැදිලි කරන්න පාවිච්චි කරන උදාහරණ වලට. පාඩම් වල තියෙන අමාරු කොටස් එහෙම ලේසියෙන් මතක තියෙනවා ඒ උදාහරණ නිසා. සර් පාඩම කියල දෙන විදියට අහන් ඉන්නත් හරිම ආසයි.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar"><img src="Gineth.png" alt="Gineth Piyasundara"></div>
+          <div>
+            <div class="author-name">Gineth Piyasundara</div>
+            <div class="author-grade">2025 O/L · St.Thomas College - Colombo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">විභාගෙට මාස 3 ක් තියෙද්දී තමයි මම YouTube එකේ සර් උගන්වන Video එකක් දැක්කේ. මට තෙරුනේම නැති Logic Gates පාඩම මාර ලේසි විදියට සර් කියල දුන්නා ඒ Video එකේ. සර් ව කලින් හම්බුනා නම් කියල හිතුන වාර අනන්තයි.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar"><img src="Janupa.jpeg" alt="Nuran Bhathiya"></div>
+          <div>
+            <div class="author-name">Nuran Bhathiya</div>
+            <div class="author-grade">2025 A/L · Central College - Weeraketiya</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">මුලින්ම සර් ව අදුරගත්තේ TikTok එකේ Viral උන උගන්වන Video එකෙන්. මට සර් උගන්වන විදියට ආස හිතුන නිසා මම සර්ගේ class එකට join උනා. එදා ඉදන් මගේ ආසම subject එක උනේ ICT.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar"><img src="Amasha Savindi.png" alt="Amasha Savindi"></div>
+          <div>
+            <div class="author-name">Amasha Savindi</div>
+            <div class="author-grade">2026 A/L · Vishaka College - Colombo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">දිට්වා ව්‍යවසනයෙන් අධ්‍යාපන කටයුතු අඩාල උන ළමයින්ට සර් නොමිලේ උගන්වපු class එකට මම සම්බන්ධ උනා. ඇත්තටම හරිම ආසාවෙන් මම සර්ගේ ඒ class වලට ආවේ.Tutes,notes,papers හැමදෙයක්ම දෙන ගමන් හොදටම Subject එක ඉගැන්නුවා. Thank you so much sir!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar"><img src="Imesh.png" alt="Imesh Fernando"></div>
+          <div>
+            <div class="author-name">Imesh Fernando</div>
+            <div class="author-grade">2025 O/L · President's College - Embilipitiya</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">As I had low marks for ICT in grade 6 first term test, my Tamil teacher recommended Hasitha sir's class. In second term, I was the highest scorer for ICT in the section and was able to secure the first place of the class. It could have been a dream if I didn't join Hasitha sir's class. Truly grateful for sir's teaching pattern and commitment. </p>
+        <div class="testimonial-author">
+          <div class="author-avatar"><img src="Minugi.png" alt="Minugi Dinanya"></div>
+          <div>
+            <div class="author-name">Minugi Dinanya</div>
+            <div class="author-grade">Grade 6 · Sussex College - Negombo </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">One of my classmates told me about Hasitha sir's class back in grade 6 second term. I joined the class in third term and soon after ICT became my favourite subject. The way sir teaches is so funny and enagaging.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar"><img src="Lithumya.png" alt="Lithumya"></div>
+          <div>
+            <div class="author-name">Lithumya</div>
+            <div class="author-grade">Grade 7 · Yashodara College - Colombo </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="sinhala-text">සිහින වලට ICT...</div>
+        <h3>Hasitha Lakshan</h3>
+        <p>Quality ICT education for Grade 6–11 and A/L students in Sri Lanka. English and Sinhala medium available.</p>
+        <div class="footer-social">
+          <a href="https://web.facebook.com/profile.php?id=61585565060965" target="_blank" class="social-btn fb" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/hasi_ict" target="_blank" class="social-btn ig" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@hasitha_lakshan_ict" target="_blank" class="social-btn tt" title="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://www.youtube.com/@hasithalakshan-ict" target="_blank" class="social-btn yt" title="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://wa.me/94740638741" target="_blank" class="social-btn wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#timetable">Timetable</a></li>
+          <li><a href="#lessons">Free Lessons</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Classes</h4>
+        <ul>
+          <li>Grade 6-11 ICT (English Medium)</li>
+          <li>Grade 6-11 ICT (Sinhala Medium)</li>
+          <li>2028 A/L Theory</li>
+          <li>2027 A/L Theory & Revision</li>
+          <li><a href="https://wa.me/94740638741" target="_blank">Contact via WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Hasitha Lakshan ICT. All rights reserved.</span>
+      
+    </div>
+  </div>
+</footer>
+
+<!-- LOGIN / REGISTER MODAL -->
+<div class="modal-overlay" id="authModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+    <div class="modal-logo">
+      <h3>Welcome!</h3>
+      <p>Sign In / Register </p>
+    </div>
+    <div class="modal-tabs">
+      <button class="modal-tab active" id="tabLogin" onclick="switchTab('login')">Sign In</button>
+      <button class="modal-tab" id="tabRegister" onclick="switchTab('register')">Register</button>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <div class="form-panel active" id="panelLogin">
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="loginEmail" placeholder="student@email.com">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="loginPassword" placeholder="••••••••">
+      </div>
+      <button class="form-submit" onclick="handleLogin()">
+        <i class="fas fa-sign-in-alt"></i> &nbsp; Sign In
+      </button>
+      
+    </div>
+
+    <!-- REGISTER FORM -->
+    <div class="form-panel" id="panelRegister">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="regName" placeholder="Your full name">
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="regEmail" placeholder="student@email.com">
+      </div>
+      <div class="form-group">
+        <label>Grade</label>
+        <select id="regGrade">
+          <option value="">Select your grade</option>
+          <option>Grade 6</option>
+          <option>Grade 7</option>
+          <option>Grade 8</option>
+          <option>Grade 9</option>
+          <option>Grade 10</option>
+          <option>Grade 11</option>
+          <option>A/L ICT</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Medium</label>
+        <select id="regMedium">
+          <option value="">Select medium</option>
+          <option>English Medium</option>
+          <option>Sinhala Medium</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="regPassword" placeholder="Create a password">
+      </div>
+      <button class="form-submit" onclick="handleRegister()">
+        <i class="fas fa-user-plus"></i> &nbsp; Create Account
+      </button>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── LESSON CARDS DATA ─── (customize YouTube links, titles, grades, duration)
+const lessons = [
+  { title: "A/L ICT - Programing | Algorithms", grade: "2027 A/L", duration: "50 min", url: "https://youtu.be/3m5G0q3dCmA", thumb:"thumb1.jpg" },
+  { title: "A/L ICT - Database | SQL Operators", grade: "2027 A/L", duration: "42 min", url: "https://youtu.be/yyWsFqcGUBY" , thumb:"thumb2.jpg"},
+  { title: "A/L ICT - Database | භූතාර්ථ සම්බන්ධතා සටහන් ( ER Diagrams)", grade: "2027 A/L", duration: "32 min", url: "https://youtu.be/hKe0bziBSB4" , thumb:"thumb3.jpg"},
+  { title: "A/L ICT - Information Systems | සුචල්‍ය ආකෘතිය (Agile Model)", grade: "2027 A/L", duration: "10 min", url: "https://youtu.be/iytZwyq10Oc" , thumb:"thumb4.jpg"},
+  { title: "A/L ICT - Information Systems | පද්ධති පරීක්ෂාව (Systems Testing)", grade: "2026 A/L", duration: "43 min", url: "https://youtu.be/ddzzZElqUwQ" , thumb:"thumb5.jpg"},
+  { title: "A/L ICT - Networking | ගුප්ත කේතනය (Cryptography)", grade: "2026 A/L", duration: "11 min", url: "https://youtu.be/vfK-zZejoQ4" , thumb:"thumb6.jpg"},
+  { title: "A/L ICT - Networking | OSI ආකෘතිය (Open Systems Interconnection Model)", grade: "2026 A/L", duration: "30 min", url: "https://youtu.be/wH5qCcWLqO4" , thumb:"thumb7.jpg" },
+  { title: "A/L ICT - Networking | ජාල ලිපින & උපජාලකරණය (Mac Addresses , IP Addresses , Subnetting )", grade: "2026 A/L", duration: "37 min", url: "https://youtu.be/jcvz9HG7BkY" , thumb:"thumb8.jpg"},
+  { title: "A/L ICT - Operating Systems | තත්ත්ව 7 ක්‍රියායන සංක්‍රාන්ති රූප සටහන", grade: "2027 A/L", duration: "31 min", url: "https://youtu.be/KAdjqf0Km_c" , thumb:"thumb9.jpg"},
+  { title: "A/L ICT - Logic Gates | බූලියානු නීති (Boolean Laws)", grade: "2027 A/L", duration: "55 min", url: "https://youtu.be/amEFKSrJ0WQ" , thumb:"thumb10.jpg"},
+  { title: "A/L ICT - Logic Gates | මුලික & සංයෝජිත තාර්කික ද්වාර (Basic & Combinational Logic Gates)", grade: "2027 A/L", duration: "1 hour 10 min", url: "https://youtu.be/ZhAub3kqwpI" , thumb:"thumb11.jpg"},
+  { title: "2026 A/L ICT - Revision | Unit 1 - Part 1", grade: "2026 A/L - Revision", duration: "1 hour 20 min", url: "https://youtu.be/Mw41KDtArS4t" , thumb:"thumb12.jpg"},
+  { title: "2026 A/L ICT - Revision | Unit 1 - Part 2", grade: "2026 A/L - Revision", duration: "45 min", url: "https://youtu.be/a6aGBbjKwwk" , thumb:"thumb13.jpg"},
+  { title: "2026 A/L ICT - Revision | Unit 2 - Part 1", grade: "2026 A/L - Revision", duration: "54 min", url: "https://youtu.be/JjH2u8ej5yE" , thumb:"thumb14.jpg"},
+  { title: "පාඩම් කරන්න System එකක්", grade: "For all grades", duration: "1 min", url: "https://youtube.com/shorts/Uef5lk7pX3k" , thumb:"thumb15.png"}
+];
+
+function buildLessons() {
+  const grid = document.getElementById('lessonsGrid');
+  lessons.forEach((l, i) => {
+    const colors = ['#1565C0','#D32F2F','#0D47A1','#B71C1C','#1976D2'];
+    const bg = colors[i % colors.length];
+    grid.innerHTML += `
+      <div class="lesson-card" onclick="window.open('${l.url}','_blank')">
+        <div class="lesson-thumb" style="background:#000; background-image:url('${l.thumb}'); background-size:cover; background-position:center;">
+          
+        </div>
+        <div class="lesson-body">
+          <span class="lesson-grade">${l.grade}</span>
+          <div class="lesson-title">${l.title}</div>
+          <div class="lesson-meta">
+            <span><i class="fas fa-clock"></i> ${l.duration}</span>
+            <span><i class="fab fa-youtube" style="color:#FF0000"></i> Free</span>
+          </div>
+        </div>
+      </div>`;
+  });
+}
+
+
+
+// ─── NAV ───
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// Close nav on link click (mobile)
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
+
+// ─── MODAL ───
+function openModal(tab) {
+  document.getElementById('authModal').classList.add('active');
+  switchTab(tab || 'login');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('authModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('authModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+function switchTab(tab) {
+  document.getElementById('tabLogin').classList.toggle('active', tab === 'login');
+  document.getElementById('tabRegister').classList.toggle('active', tab === 'register');
+  document.getElementById('panelLogin').classList.toggle('active', tab === 'login');
+  document.getElementById('panelRegister').classList.toggle('active', tab === 'register');
+}
+
+function handleLogin() {
+  const email = document.getElementById('loginEmail').value;
+  const pass = document.getElementById('loginPassword').value;
+  if (!email || !pass) { alert('Please fill in all fields.'); return; }
+  
+  auth.signInWithEmailAndPassword(email, pass)
+    .then(cred => {
+      closeModal();
+      alert('Welcome back! You are now logged in.');
+    })
+    .catch(err => alert('Login failed: ' + err.message));
+}
+
+function handleRegister() {
+  const name = document.getElementById('regName').value;
+  const email = document.getElementById('regEmail').value;
+  const grade = document.getElementById('regGrade').value;
+  const medium = document.getElementById('regMedium').value;
+  const pass = document.getElementById('regPassword').value;
+  if (!name || !email || !grade || !medium || !pass) { alert('Fill all fields.'); return; }
+
+  auth.createUserWithEmailAndPassword(email, pass)
+    .then(cred => {
+      return db.collection('students').doc(cred.user.uid).set({
+        name, email, grade, medium,
+        enrolledAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+    })
+    .then(() => {
+      closeModal();
+      alert('Welcome ' + name + '! Your account has been created.');
+    })
+    .catch(err => alert('Registration failed: ' + err.message));
+}
+
+// ─── NAVBAR SCROLL EFFECT ───
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').style.boxShadow =
+    window.scrollY > 40 ? '0 4px 20px rgba(0,0,0,0.12)' : '0 2px 16px rgba(211,47,47,0.08)';
+});
+
+// ─── INIT ───
+buildLessons();
+buildGallery();
+</script>
+</body>
+</html>

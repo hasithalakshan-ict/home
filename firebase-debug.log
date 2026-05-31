@@ -1,0 +1,54 @@
+[debug] [2026-05-31T12:34:31.775Z] ----------------------------------------------------------------------
+[debug] [2026-05-31T12:34:31.778Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2026-05-31T12:34:31.779Z] CLI Version:   15.19.0
+[debug] [2026-05-31T12:34:31.779Z] Platform:      win32
+[debug] [2026-05-31T12:34:31.779Z] Node Version:  v22.13.1
+[debug] [2026-05-31T12:34:31.780Z] Time:          Sun May 31 2026 18:04:31 GMT+0530 (India Standard Time)
+[debug] [2026-05-31T12:34:31.780Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-05-31T12:34:34.660Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-05-31T12:34:34.661Z] > authorizing via signed-in user (hasitha.uiux@gmail.com)
+[debug] [2026-05-31T12:34:34.661Z] [iam] checking project hasitha-ict-lms for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-05-31T12:34:34.663Z] Checked if tokens are valid: true, expires at: 1780233377781
+[debug] [2026-05-31T12:34:34.663Z] Checked if tokens are valid: true, expires at: 1780233377781
+[debug] [2026-05-31T12:34:34.664Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/hasitha-ict-lms:testIamPermissions [none]
+[debug] [2026-05-31T12:34:34.664Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/hasitha-ict-lms:testIamPermissions  x-goog-user-project=hasitha-ict-lms
+[debug] [2026-05-31T12:34:34.665Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/hasitha-ict-lms:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-05-31T12:34:35.396Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/hasitha-ict-lms:testIamPermissions 200
+[debug] [2026-05-31T12:34:35.397Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/hasitha-ict-lms:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-05-31T12:34:35.398Z] Checked if tokens are valid: true, expires at: 1780233377781
+[debug] [2026-05-31T12:34:35.398Z] Checked if tokens are valid: true, expires at: 1780233377781
+[debug] [2026-05-31T12:34:35.399Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/hasitha-ict-lms [none]
+[debug] [2026-05-31T12:34:36.077Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/hasitha-ict-lms 200
+[debug] [2026-05-31T12:34:36.077Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/hasitha-ict-lms {"projectId":"hasitha-ict-lms","projectNumber":"394884612834","displayName":"hasitha-ict-lms","name":"projects/hasitha-ict-lms","resources":{"hostingSite":"hasitha-ict-lms"},"state":"ACTIVE","etag":"1_d6c6f303-4087-4caa-bf2f-258397ff2d5c"}
+[info] 
+[info] === Deploying to 'hasitha-ict-lms'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2026-05-31T12:34:36.084Z] Checked if tokens are valid: true, expires at: 1780233377781
+[debug] [2026-05-31T12:34:36.084Z] Checked if tokens are valid: true, expires at: 1780233377781
+[debug] [2026-05-31T12:34:36.084Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/hasitha-ict-lms/sites/hasitha-ict-lms [none]
+[debug] [2026-05-31T12:34:37.553Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/hasitha-ict-lms/sites/hasitha-ict-lms 200
+[debug] [2026-05-31T12:34:37.553Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/hasitha-ict-lms/sites/hasitha-ict-lms {"name":"projects/hasitha-ict-lms/sites/hasitha-ict-lms","defaultUrl":"https://hasitha-ict-lms.web.app","type":"DEFAULT_SITE"}
+[debug] [2026-05-31T12:34:37.560Z] Checked if tokens are valid: true, expires at: 1780233377781
+[debug] [2026-05-31T12:34:37.560Z] Checked if tokens are valid: true, expires at: 1780233377781
+[debug] [2026-05-31T12:34:37.560Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/hasitha-ict-lms/versions [none]
+[debug] [2026-05-31T12:34:37.560Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/hasitha-ict-lms/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2026-05-31T12:34:38.800Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/hasitha-ict-lms/versions 200
+[debug] [2026-05-31T12:34:38.800Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/hasitha-ict-lms/versions {"name":"projects/394884612834/sites/hasitha-ict-lms/versions/36ee7311595eeccf","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[hasitha-ict-lms]: beginning deploy... 
+[info] i  hosting[hasitha-ict-lms]: found 437933 files in . 
+[debug] [2026-05-31T12:35:49.523Z] [hosting] uploading with 200 concurrency
+[debug] [2026-05-31T12:35:49.525Z] [hosting] hash cache [] not populated
+[debug] [2026-05-31T12:35:49.841Z] Error: EBUSY: resource busy or locked, open 'C:\Users\Admin\ntuser.dat.LOG2'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2026-05-31T12:35:49.843Z] Error: EBUSY: resource busy or locked, open 'C:\Users\Admin\ntuser.dat.LOG1'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2026-05-31T12:35:49.847Z] Error: EBUSY: resource busy or locked, open 'C:\Users\Admin\NTUSER.DAT'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2026-05-31T12:35:49.982Z] Error: EISDIR: illegal operation on a directory, read
+[error] 
+[error] Error: An unexpected error has occurred.
