@@ -567,6 +567,50 @@ footer { background: #0d1b2a; color: rgba(255,255,255,0.8); padding: 3rem 2rem 1
 @media (max-width: 480px) {
   .lessons-grid { grid-template-columns: 1fr; }
 }
+
+
+<!--exam timer-->
+
+.exam-timer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+  margin-top:20px;
+}
+
+.exam-card{
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:var(--shadow);
+  text-align:center;
+  transition:0.3s;
+}
+
+.exam-card:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--shadow-hover);
+}
+
+.exam-card h3{
+  font-family:'Raleway',sans-serif;
+  margin-bottom:5px;
+  color:var(--blue-dark);
+}
+
+.exam-card p{
+  font-size:0.85rem;
+  color:var(--text-muted);
+  margin-bottom:15px;
+}
+
+.timer-box{
+  font-size:1.2rem;
+  font-weight:700;
+  color:var(--red);
+  letter-spacing:1px;
+}
+
 </style>
 </head>
 <body>
@@ -644,6 +688,35 @@ footer { background: #0d1b2a; color: rgba(255,255,255,0.8); padding: 3rem 2rem 1
         <i class="fas fa-star" style="color:#FFC107"></i>
         <span>Certified Results</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!--exam timer-->
+
+<!-- EXAM COUNTDOWN TIMER -->
+<section class="section section-light">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">2026 A/L ICT</div>
+      <h2 class="section-title">Exam <span>Countdown</span></h2>
+      <p class="section-sub">Time left until your final exam papers</p>
+    </div>
+
+    <div class="exam-timer-grid">
+      
+      <div class="exam-card">
+        <h3>Part 1 Paper</h3>
+        <p>2026.08.29 | 1.00 PM – 3.00 PM</p>
+        <div id="timer1" class="timer-box"></div>
+      </div>
+
+      <div class="exam-card">
+        <h3>Part 2 Paper</h3>
+        <p>2026.09.01 | 8.30 AM – 11.10 AM</p>
+        <div id="timer2" class="timer-box"></div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -811,31 +884,31 @@ footer { background: #0d1b2a; color: rgba(255,255,255,0.8); padding: 3rem 2rem 1
         <p class="testimonial-text">මම කැමතිම සර් පාඩම පැහැදිලි කරන්න පාවිච්චි කරන උදාහරණ වලට. පාඩම් වල තියෙන අමාරු කොටස් එහෙම ලේසියෙන් මතක තියෙනවා ඒ උදාහරණ නිසා. සර් පාඩම කියල දෙන විදියට අහන් ඉන්නත් හරිම ආසයි.</p>
         <div class="testimonial-author">
           <div class="author-avatar"><img src="Gineth.png" alt="Gineth Piyasundara"></div>
-          <div><div class="author-name">Gineth Piyasundara</div><div class="author-grade">2027 A/L · St.Thomas College - Colombo</div></div>
+          <div><div class="author-name">Gineth Piyasundara</div><div class="author-grade">2025 O/L · St.Thomas College - Colombo</div></div>
         </div>
       </div>
       <div class="testimonial-card reveal delay-2">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text">මුලින්ම සර් ව අදුරගත්තේ TikTok එකේ Viral උන උගන්වන Video එකෙන්. මට සර් උගන්වන විදියට ආස හිතුන නිසා මම සර්ගේ class එකට join උනා. එදා ඉදන් මගේ ආසම subject එක උනේ ICT.</p>
+        <p class="testimonial-text">විභාගෙට මාස 3 ක් තියෙද්දී තමයි මම YouTube එකේ සර් උගන්වන Video එකක් දැක්කේ. මට තෙරුනේම නැති Logic Gates පාඩම මාර ලේසි විදියට සර් කියල දුන්නා ඒ Video එකේ. සර් ව කලින් හම්බුනා නම් කියල හිතුන වාර අනන්තයි.</p>
         <div class="testimonial-author">
           <div class="author-avatar"><img src="Janupa.jpeg" alt="Nuran Bhathiya"></div>
-          <div><div class="author-name">Janupa Pathirana</div><div class="author-grade">2026 O/L · Central College - Weeraketiya</div></div>
+          <div><div class="author-name">Nuran Bhathiya</div><div class="author-grade">2025 A/L · Central College - Weeraketiya</div></div>
         </div>
       </div>
       <div class="testimonial-card reveal delay-3">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text">One of my classmates told me about Hasitha sir's class back in grade 6 second term. I joined the class in third term and soon after ICT became my favourite subject. The way sir teaches is so funny and engaging.</p>
+        <p class="testimonial-text">මුලින්ම සර් ව අදුරගත්තේ TikTok එකේ Viral උන උගන්වන Video එකෙන්. මට සර් උගන්වන විදියට ආස හිතුන නිසා මම සර්ගේ class එකට join උනා. එදා ඉදන් මගේ ආසම subject එක උනේ ICT.</p>
         <div class="testimonial-author">
-          <div class="author-avatar"><img src="Amasha Savindi.png" alt="Bawanya Sampath"></div>
-          <div><div class="author-name">Bawanya Sampath</div><div class="author-grade">2027 O/L · Yashodara College - Colombo</div></div>
+          <div class="author-avatar"><img src="Amasha Savindi.png" alt="Amasha Savindi"></div>
+          <div><div class="author-name">Amasha Savindi</div><div class="author-grade">2026 A/L · Vishaka College - Colombo</div></div>
         </div>
       </div>
       <div class="testimonial-card reveal delay-4">
         <div class="stars">★★★★★</div>
         <p class="testimonial-text">දිට්වා ව්‍යවසනයෙන් අධ්‍යාපන කටයුතු අඩාල උන ළමයින්ට සර් නොමිලේ උගන්වපු class එකට මම සම්බන්ධ උනා. Tutes,notes,papers හැමදෙයක්ම දෙන ගමන් හොදටම Subject එක ඉගැන්නුවා. Thank you so much sir!</p>
         <div class="testimonial-author">
-          <div class="author-avatar"><img src="Imesh.png" alt="Imesh Jayasundara"></div>
-          <div><div class="author-name">Imesh Fernando</div><div class="author-grade">2026 A/L · President's College - Embilipitiya</div></div>
+          <div class="author-avatar"><img src="Imesh.png" alt="Imesh Fernando"></div>
+          <div><div class="author-name">Imesh Fernando</div><div class="author-grade">2025 O/L · President's College - Embilipitiya</div></div>
         </div>
       </div>
       <div class="testimonial-card reveal delay-5">
@@ -848,10 +921,10 @@ footer { background: #0d1b2a; color: rgba(255,255,255,0.8); padding: 3rem 2rem 1
       </div>
       <div class="testimonial-card reveal delay-6">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text">විභාගෙට මාස 3 ක් තියෙද්දී තමයි මම YouTube එකේ සර් උගන්වන Video එකක් දැක්කේ. මට තෙරුනේම නැති Logic Gates පාඩම මාර ලේසි විදියට සර් කියල දුන්නා ඒ Video එකේ. සර් ව කලින් හම්බුනා නම් කියල හිතුන වාර අනන්තයි.</p>
+        <p class="testimonial-text">One of my classmates told me about Hasitha sir's class back in grade 6 second term. I joined the class in third term and soon after ICT became my favourite subject. The way sir teaches is so funny and engaging.</p>
         <div class="testimonial-author">
-          <div class="author-avatar"><img src="Dinithi.png" alt="Dinithi Lavanya"></div>
-          <div><div class="author-name">Dinithi Lavanya</div><div class="author-grade">2025 A/L · Vishaka College - Colombo</div></div>
+          <div class="author-avatar"><img src="Lithumya.png" alt="Lithumya"></div>
+          <div><div class="author-name">Lithumya</div><div class="author-grade">Grade 7 · Yashodara College - Colombo</div></div>
         </div>
       </div>
     </div>
@@ -1103,6 +1176,38 @@ async function handleRegister() {
 
 // ── INIT ──
 buildLessons();
+
+<!--exam timer-->
+
+function formatTime(ms) {
+  if (ms <= 0) return "EXAM STARTED 🎯";
+
+  let totalHours = Math.floor(ms / (1000 * 60 * 60));
+  let days = Math.floor(totalHours / 24);
+  let hours = totalHours % 24;
+
+  let months = Math.floor(days / 30);
+  days = days % 30;
+
+  return `${months}Months : ${days}Days : ${hours}Hours`;
+}
+
+function updateTimers() {
+  const now = new Date();
+
+  const part1 = new Date("2026-08-29T13:00:00+05:30");
+  const part2 = new Date("2026-09-01T08:30:00+05:30");
+
+  const diff1 = part1 - now;
+  const diff2 = part2 - now;
+
+  document.getElementById("timer1").innerText = formatTime(diff1);
+  document.getElementById("timer2").innerText = formatTime(diff2);
+}
+
+setInterval(updateTimers, 1000);
+updateTimers();
+
 </script>
 </body>
 </html>
