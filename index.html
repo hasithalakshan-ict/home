@@ -412,6 +412,60 @@ nav {
 .lesson-meta { display: flex; align-items: center; gap: 12px; font-size: 0.75rem; color: var(--text-muted); }
 .lesson-edit-note { text-align: center; margin-top: 1.5rem; color: var(--text-muted); font-size: 0.82rem; }
 
+/* ── LESSON PACKS ── */
+/* Same tile size as .lessons-grid/.lesson-card below (280px min, same gap) so
+   pack cards visually match the Free Lessons cards. auto-fill (not auto-fit)
+   keeps each card at that fixed size instead of stretching to fill the row
+   when there are only 2-3 months — the row just fills in as more are added. */
+.pack-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+.pack-card {
+  background: white; border-radius: var(--radius); border: 1px solid #e8ecf0;
+  box-shadow: var(--shadow); overflow: hidden;
+  transition: transform 0.3s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s;
+}
+.pack-card:hover { transform: translateY(-8px) scale(1.01); box-shadow: var(--shadow-hover); }
+.pack-cover {
+  /* 56.25% = 16:9, matching the source thumbnails' native aspect ratio
+     exactly, so background-size:cover scales uniformly with no cropping. */
+  position: relative; padding-bottom: 56.25%; height: 0;
+  background-size: cover; background-position: center; background-color: #111;
+}
+.pack-card-body { padding: 1rem 1.25rem; }
+.pack-header { display: flex; align-items: center; gap: 8px; margin-bottom: 0.75rem; }
+.pack-lock-icon { color: var(--red); font-size: 1rem; }
+.pack-header h3 { font-size: 0.9rem; font-weight: 600; color: var(--text); line-height: 1.4; }
+.pack-watch-btn { width: 100%; justify-content: center; padding: 10px 20px; font-size: 0.85rem; }
+
+/* video list popup — shown inside #packVideosModal after a correct login */
+.pack-videos-modal { max-width: 620px; padding: 2rem; }
+.pack-video-list { list-style: none; display: flex; flex-direction: column; gap: 14px; min-height: 36px; }
+.pack-video-item { display: flex; align-items: center; gap: 14px; }
+.pack-empty {
+  color: var(--text-muted); font-style: italic; font-size: 0.85rem;
+  display: flex; align-items: center; gap: 6px;
+}
+.pack-video-btn {
+  background: none; border: none; padding: 8px; margin: -8px; border-radius: 10px;
+  font: inherit; color: var(--text); cursor: pointer; text-align: left;
+  display: flex; align-items: center; gap: 14px; width: 100%; transition: background 0.2s;
+}
+.pack-video-btn:hover { background: var(--bg); }
+.pack-video-btn:hover .pack-vid-title { color: var(--red); }
+.pack-vid-thumb {
+  position: relative; width: 160px; min-width: 160px; aspect-ratio: 16/9;
+  border-radius: 8px; overflow: hidden; background: #111;
+}
+.pack-vid-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pack-vid-play-badge {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.95); font-size: 1.8rem; background: rgba(0,0,0,0.1);
+  opacity: 0; transition: opacity 0.2s;
+}
+.pack-video-btn:hover .pack-vid-play-badge { opacity: 1; }
+.pack-vid-title { font-size: 0.92rem; font-weight: 500; color: var(--text); line-height: 1.4; transition: color 0.2s; }
+
+.pack-login-note { font-size: 0.78rem; color: var(--text-muted); margin-top: 12px; text-align: center; line-height: 1.5; }
+
 /* ── GALLERY ── */
 .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .gallery-item {
@@ -583,6 +637,7 @@ footer { background: #0d1b2a; color: rgba(255,255,255,0.8); padding: 3rem 2rem 1
     </div>
   </div>
   <ul class="nav-links" id="navLinks">
+    <li><a href="#lesson-packs">Lesson Packs</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#timetable">Timetable</a></li>
     <li><a href="#lessons">Free Lessons</a></li>
@@ -643,6 +698,43 @@ footer { background: #0d1b2a; color: rgba(255,255,255,0.8); padding: 3rem 2rem 1
       <div class="hero-float-card card2">
         <i class="fas fa-star" style="color:#FFC107"></i>
         <span>Certified Results</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LESSON PACKS -->
+<section class="section section-gray" id="lesson-packs">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">Lesson Packs</div>
+      <h2 class="section-title">Lesson <span>Packs</span></h2>
+      <p class="section-sub">2028 A/L ICT</p>
+    </div>
+    <div class="pack-grid">
+      <div class="pack-card reveal delay-1">
+        <div class="pack-cover" style="background-image:url('Recordings/28 July/28 July Thumbnail.jpg')"></div>
+        <div class="pack-card-body">
+          <div class="pack-header">
+            <i class="fas fa-lock pack-lock-icon"></i>
+            <h3>Lesson 1 | July Month</h3>
+          </div>
+          <button class="btn-primary ripple-btn pack-watch-btn" onclick="openPackLogin('july')">
+            <i class="fas fa-play"></i> Watch
+          </button>
+        </div>
+      </div>
+      <div class="pack-card reveal delay-2">
+        <div class="pack-cover" style="background-image:url('Recordings/28 August/28 August Thumbnail.jpg')"></div>
+        <div class="pack-card-body">
+          <div class="pack-header">
+            <i class="fas fa-lock pack-lock-icon"></i>
+            <h3>Lesson 2 | August Month</h3>
+          </div>
+          <button class="btn-primary ripple-btn pack-watch-btn" onclick="openPackLogin('august')">
+            <i class="fas fa-play"></i> Watch
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -940,6 +1032,34 @@ footer { background: #0d1b2a; color: rgba(255,255,255,0.8); padding: 3rem 2rem 1
   </div>
 </div>
 
+<!-- LESSON PACK LOGIN MODAL -->
+<div class="modal-overlay" id="packLoginModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closePackLogin()"><i class="fas fa-times"></i></button>
+    <div class="modal-logo">
+      <h3><i class="fas fa-lock"></i>&nbsp; Restricted Access</h3>
+      <p id="packLoginSubtitle">Enter your username and password</p>
+    </div>
+    <div class="form-group"><label>Username</label><input type="text" id="packUsername" placeholder="Username" autocomplete="off"></div>
+    <div class="form-group"><label>Password</label><input type="password" id="packPassword" placeholder="••••••••"></div>
+    <button class="form-submit ripple-btn" onclick="submitPackLogin()"><i class="fas fa-unlock"></i>&nbsp; Unlock</button>
+    <p id="packLoginError" style="display:none;color:var(--red-dark);font-size:0.8rem;text-align:center;"></p>
+    <p class="pack-login-note"><i class="fas fa-info-circle"></i> These are Private YouTube videos — after unlocking, make sure you're signed into your authorized Google account before pressing a video, or YouTube will block it.</p>
+  </div>
+</div>
+
+<!-- LESSON PACK VIDEOS MODAL -->
+<div class="modal-overlay" id="packVideosModal">
+  <div class="modal pack-videos-modal">
+    <button class="modal-close" onclick="closePackVideos()"><i class="fas fa-times"></i></button>
+    <div class="modal-logo">
+      <h3 id="packVideosTitle">Lesson Pack</h3>
+      <p>Select a video to watch</p>
+    </div>
+    <ul class="pack-video-list" id="packVideosList"></ul>
+  </div>
+</div>
+
 <script>
 // ── LESSON DATA ──
 const lessons = [
@@ -982,6 +1102,129 @@ function buildLessons() {
   // re-observe new cards
   document.querySelectorAll('.lesson-card').forEach(el => observer.observe(el));
 }
+
+// ── LESSON PACKS (password protected) ──
+const lessonPacks = {
+  july: {
+    label: "Lesson 1 | July Month",
+    videos: [
+      { id: "BtYhn5eGOA4", title: "විෂය නිර්දේශය පිළිබඳ හැඳින්වීම", thumb: "Recordings/28 July/විෂය නිර්දේශය පිළිබඳ හැඳින්වීම.jpg" },
+      { id: "Sp3hkYVCU0o", title: "Video 1 - 2028 A/L ICT Unit 1 - Day 1", thumb: "Recordings/28 July/2028 AL ICT Unit 1 - Day 1.jpg" },
+      { id: "5lgrPupvUes", title: "Video 2 - 2028 A/L ICT Unit 1 - Day 2", thumb: "Recordings/28 July/2028 AL ICT Unit 1 - Day 2.jpg" },
+      { id: "uWHaZrZymW8", title: "Video 3 - 2028 A/L ICT Unit 1 - Day 3", thumb: "Recordings/28 July/2028 AL ICT Unit 1 - Day 3.jpg" },
+      { id: "CmvEu1NErv0", title: "Video 5 - 2028 A/L ICT Unit 1 - Day 6", thumb: "Recordings/28 July/2028 AL ICT Unit 1 - Day 6.jpg" }
+    ]
+  },
+  august: {
+    label: "Lesson 2 | August Month",
+    videos: [
+      { id: "So9kSIf5quc", title: "Unit 1 - Supplementary Note Discussion", thumb: "Recordings/28 August/Supplementary note.png" }
+    ]
+  }
+};
+
+// NOTE: This is a client-side gate only (no backend), so it can't stop a
+// determined attacker offline-cracking a hash — but passwords are stored
+// here as SHA-256 hashes, not plain text, so casual view-source/DevTools
+// snooping no longer reveals the actual password. Admin credentials stay
+// the same every month; Kasun's password changes each month while his
+// username stays fixed.
+const packCredentials = {
+  july: [
+    { username: "admin_hasitha", passwordHash: "7da5bba207ee695fb43d803bfe6db3d563863bc5b56617bcb8c6f306dc9e20c5", name: "Admin" },
+    { username: "28#kasun#007", passwordHash: "03be843d9a35cc82a4e1a133c1dba7bdf810bd9cf37c3497c5eb02ccff659636", name: "Kasun" }
+  ],
+  august: [
+    { username: "admin_hasitha", passwordHash: "7da5bba207ee695fb43d803bfe6db3d563863bc5b56617bcb8c6f306dc9e20c5", name: "Admin" },
+    { username: "28#kasun#007", passwordHash: "9da1d137d583a04ce7fde8bbe561174d1e75e1d2ef7e8095c773ffa70e7b248a", name: "Kasun" }
+  ]
+};
+
+async function sha256Hex(text) {
+  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+  return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+const unlockedPacks = { july: false, august: false };
+let currentPackKey = null;
+
+// Video list is never shown on the home page — it only appears in the
+// packVideosModal after a correct login, so the home cards stay small.
+function openPackVideos(key) {
+  const pack = lessonPacks[key];
+  document.getElementById('packVideosTitle').textContent = pack.label;
+  const listEl = document.getElementById('packVideosList');
+  if (!pack.videos.length) {
+    listEl.innerHTML = `<li class="pack-video-item pack-empty"><i class="fas fa-hourglass-half"></i> Coming soon</li>`;
+  } else {
+    listEl.innerHTML = pack.videos.map(v => `
+      <li class="pack-video-item">
+        <button class="pack-video-btn" onclick="watchPrivateVideo('${v.id}')">
+          <div class="pack-vid-thumb">
+            <img src="${v.thumb}" alt="">
+            <div class="pack-vid-play-badge"><i class="fas fa-play-circle"></i></div>
+          </div>
+          <span class="pack-vid-title">${v.title}</span>
+        </button>
+      </li>`
+    ).join('');
+  }
+  document.getElementById('packVideosModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closePackVideos() {
+  document.getElementById('packVideosModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.getElementById('packVideosModal').addEventListener('click', function(e) {
+  if (e.target === this) closePackVideos();
+});
+
+// These are actual YouTube "Private" videos, which YouTube refuses to embed
+// on any external site (confirmed — it fails even for an authorized,
+// signed-in account). So after a correct pack login, this opens the real
+// YouTube watch page in a new tab instead of an in-site player. YouTube will
+// only actually play it if the visitor's browser is signed into a Google
+// account the teacher has added as an authorized viewer on that video.
+function watchPrivateVideo(id) {
+  window.open(`https://www.youtube.com/watch?v=${id}`, '_blank', 'noopener,noreferrer');
+}
+
+function openPackLogin(key) {
+  if (unlockedPacks[key]) { openPackVideos(key); return; }
+  currentPackKey = key;
+  document.getElementById('packUsername').value = '';
+  document.getElementById('packPassword').value = '';
+  document.getElementById('packLoginError').style.display = 'none';
+  document.getElementById('packLoginSubtitle').textContent = 'Login to watch: ' + lessonPacks[key].label;
+  document.getElementById('packLoginModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closePackLogin() {
+  document.getElementById('packLoginModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.getElementById('packLoginModal').addEventListener('click', function(e) {
+  if (e.target === this) closePackLogin();
+});
+async function submitPackLogin() {
+  const u = document.getElementById('packUsername').value.trim();
+  const p = document.getElementById('packPassword').value;
+  const errEl = document.getElementById('packLoginError');
+  const hash = await sha256Hex(p);
+  const match = (packCredentials[currentPackKey] || []).find(c => c.username === u && c.passwordHash === hash);
+  if (match) {
+    unlockedPacks[currentPackKey] = true;
+    closePackLogin();
+    openPackVideos(currentPackKey);
+  } else {
+    errEl.textContent = 'Invalid username or password.';
+    errEl.style.display = 'block';
+  }
+}
+['packUsername', 'packPassword'].forEach(id => {
+  document.getElementById(id).addEventListener('keydown', e => { if (e.key === 'Enter') submitPackLogin(); });
+});
 
 // ── SCROLL REVEAL ──
 const observer = new IntersectionObserver((entries) => {
