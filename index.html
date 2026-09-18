@@ -729,9 +729,21 @@ footer { background: #0d1b2a; color: rgba(255,255,255,0.8); padding: 3rem 2rem 1
         <div class="pack-card-body">
           <div class="pack-header">
             <i class="fas fa-lock pack-lock-icon"></i>
-            <h3>Lesson 1 | August Month</h3>
+            <h3>Lesson 2 | August Month</h3>
           </div>
           <button class="btn-primary ripple-btn pack-watch-btn" onclick="openPackLogin('august')">
+            <i class="fas fa-play"></i> Watch
+          </button>
+        </div>
+      </div>
+      <div class="pack-card reveal delay-3">
+        <div class="pack-cover" style="background-image:url('Recordings/28 September/September Card.png')"></div>
+        <div class="pack-card-body">
+          <div class="pack-header">
+            <i class="fas fa-lock pack-lock-icon"></i>
+            <h3>Lesson 3 | September Month</h3>
+          </div>
+          <button class="btn-primary ripple-btn pack-watch-btn" onclick="openPackLogin('september')">
             <i class="fas fa-play"></i> Watch
           </button>
         </div>
@@ -1125,6 +1137,13 @@ const lessonPacks = {
       { id: "S4PiLgSFAUA", title: "සමාජය කෙරෙහි තොරතුරු හා සන්නිවේදන තාක්ෂණයේ බලපෑම", thumb: "Recordings/28 August/සමාජය කෙරෙහි තොරතුරු හා සන්නිවේදන තාක්ෂණයේ බලපෑම.jpg" },
       { id: "a6aGBbjKwwk", title: "August Monthly Revision", thumb: "Recordings/28 August/August Revision.jpg" }
     ]
+  },
+  september: {
+    label: "Lesson 3 | September Month",
+    videos: [
+      { id: "NvHY6cVS5XE", title: "Unit 2  | පරිගණකයේ ඉතිහාසය - Day 1", thumb: "Recordings/28 September/Day 1.jpg" },
+      { id: "G2KfjFrODKQ", title: "Unit 2  | පරිගණකයේ ඉතිහාසය - Day 2", thumb: "Recordings/28 September/Day 2.png" }
+    ]
   }
 };
 
@@ -1142,15 +1161,26 @@ const packCredentials = {
   august: [
     { username: "admin_hasitha", passwordHash: "7da5bba207ee695fb43d803bfe6db3d563863bc5b56617bcb8c6f306dc9e20c5", name: "Admin" },
     { username: "28#kasun#007", passwordHash: "9da1d137d583a04ce7fde8bbe561174d1e75e1d2ef7e8095c773ffa70e7b248a", name: "Kasun" }
+  ],
+  september: [
+    { username: "admin_hasitha", passwordHash: "7da5bba207ee695fb43d803bfe6db3d563863bc5b56617bcb8c6f306dc9e20c5", name: "Admin" },
+    { username: "28#kasun#007", passwordHash: "6f7ccb112bd8901497a729827656e3e6f6829f907a9e749b406ada8ea6035a58", name: "Kasun" }
   ]
 };
+
+// Free-card student: same username/password work for every pack, past,
+// present, or future — checked separately from the per-month list above so
+// new months don't need her re-added each time.
+const universalPackCredentials = [
+  { username: "Mashi", passwordHash: "828595f4d3c0fb46cae1caa344b36707bd52b370b6cc93e98be45360e4f47f86", name: "Mashi" }
+];
 
 async function sha256Hex(text) {
   const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
   return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
-const unlockedPacks = { july: false, august: false };
+const unlockedPacks = { july: false, august: false, september: false };
 let currentPackKey = null;
 
 // Video list is never shown on the home page — it only appears in the
@@ -1217,7 +1247,8 @@ async function submitPackLogin() {
   const p = document.getElementById('packPassword').value;
   const errEl = document.getElementById('packLoginError');
   const hash = await sha256Hex(p);
-  const match = (packCredentials[currentPackKey] || []).find(c => c.username === u && c.passwordHash === hash);
+  const match = (packCredentials[currentPackKey] || []).find(c => c.username === u && c.passwordHash === hash)
+    || universalPackCredentials.find(c => c.username === u && c.passwordHash === hash);
   if (match) {
     unlockedPacks[currentPackKey] = true;
     closePackLogin();
