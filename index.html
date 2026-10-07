@@ -784,6 +784,18 @@ footer { background: #0d1b2a; color: rgba(255,255,255,0.8); padding: 3rem 2rem 1
           </button>
         </div>
       </div>
+      <div class="pack-card reveal delay-4">
+        <div class="pack-cover" style="background-image:url('Recordings/28 October/Oct.png')"></div>
+        <div class="pack-card-body">
+          <div class="pack-header">
+            <i class="fas fa-unlock pack-lock-icon"></i>
+            <h3>Lesson 2 | October Month</h3>
+          </div>
+          <button class="btn-primary ripple-btn pack-watch-btn" onclick="openPackLogin('october')">
+            <i class="fas fa-play"></i> Watch
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1146,6 +1158,18 @@ footer { background: #0d1b2a; color: rgba(255,255,255,0.8); padding: 3rem 2rem 1
   </div>
 </div>
 
+<!-- SUB VIDEOS MODAL (video groups, e.g. October's Supplementary Videos) -->
+<div class="modal-overlay" id="subVideosModal">
+  <div class="modal pack-videos-modal">
+    <button class="modal-close" onclick="closeSubVideos()"><i class="fas fa-times"></i></button>
+    <div class="modal-logo">
+      <h3 id="subVideosTitle">Videos</h3>
+      <p>Select a video to watch</p>
+    </div>
+    <ul class="pack-video-list" id="subVideosList"></ul>
+  </div>
+</div>
+
 <script>
 // ── LESSON DATA ──
 const lessons = [
@@ -1223,6 +1247,26 @@ const lessonPacks = {
       { id: "JjH2u8ej5yE", title: "September Monthly Revision", thumb: "Recordings/28 September/Unit 2 Monthly 1.jpg" },
     ]
   },
+  october: {
+    label: "Lesson 2 | October Month",
+    videos: [
+      { group: true, title: "Supplementary Videos for Unit 2", thumb: "Recordings/28 October/Sup Videos.png", videos: [
+        { id: "b2pd3Y6aBag", title: "Motherboards Explained" },
+        { id: "eJn-qPHtfzI", title: "What is a Chipset?" },
+        { id: "_seJ7tW5MSA", title: "How CPUs are made ?" },
+        { id: "yi0FhRqDJfo", title: "CPU Cache Explained" },
+        { id: "frJ4DvQYpes", title: "Computer Ports" },
+        { id: "pIZREjck9jg", title: "USB Ports, Cables, Types, & Connectors" },
+        { id: "iFO3EiQbNJ8", title: "Video Port Comparison" },
+        { id: "3vq9p00T08I", title: "1984 Macintosh Commercial" },
+        { id: "S3I5WNHbnJ0", title: "Multi - Core Processors" },
+        { id: "PVad0c2cljo", title: "RAM Explained" },
+        { id: "PBDp50COwRk", title: "Types of ROM" },
+        { id: "1cyMTl_QXSc", title: "Hard Disk vs SSD" }
+      ] }
+    ]
+  },
+
   g10u1: {
     label: "Unit 1 | Information Communication Technology",
     videos: [
@@ -1266,22 +1310,22 @@ const lessonPacks = {
 // username stays fixed.
 const packCredentials = {
   july: [
-    { username: "admin_hasitha", passwordHash: "7da5bba207ee695fb43d803bfe6db3d563863bc5b56617bcb8c6f306dc9e20c5", name: "Admin" },
+    { username: "admin_hasitha", passwordHash: "3f39e3b3659844d9e8a30d6f93d3319e4bbcf8a19c493cd04ad3159768077877", name: "Admin" },
     { username: "28#kasun#007", passwordHash: "03be843d9a35cc82a4e1a133c1dba7bdf810bd9cf37c3497c5eb02ccff659636", name: "Kasun" }
   ],
   august: [
-    { username: "admin_hasitha", passwordHash: "7da5bba207ee695fb43d803bfe6db3d563863bc5b56617bcb8c6f306dc9e20c5", name: "Admin" },
+    { username: "admin_hasitha", passwordHash: "3f39e3b3659844d9e8a30d6f93d3319e4bbcf8a19c493cd04ad3159768077877", name: "Admin" },
     { username: "28#kasun#007", passwordHash: "9da1d137d583a04ce7fde8bbe561174d1e75e1d2ef7e8095c773ffa70e7b248a", name: "Kasun" }
   ],
   september: [
-    { username: "admin_hasitha", passwordHash: "7da5bba207ee695fb43d803bfe6db3d563863bc5b56617bcb8c6f306dc9e20c5", name: "Admin" },
+    { username: "admin_hasitha", passwordHash: "3f39e3b3659844d9e8a30d6f93d3319e4bbcf8a19c493cd04ad3159768077877", name: "Admin" },
     { username: "28#kasun#007", passwordHash: "6f7ccb112bd8901497a729827656e3e6f6829f907a9e749b406ada8ea6035a58", name: "Kasun" }
   ],
-  g10u1: [ { username: "admin_hasitha", passwordHash: "7da5bba207ee695fb43d803bfe6db3d563863bc5b56617bcb8c6f306dc9e20c5", name: "Admin" } ],
-  g10u2: [ { username: "admin_hasitha", passwordHash: "7da5bba207ee695fb43d803bfe6db3d563863bc5b56617bcb8c6f306dc9e20c5", name: "Admin" } ],
-  g10u5: [ { username: "admin_hasitha", passwordHash: "7da5bba207ee695fb43d803bfe6db3d563863bc5b56617bcb8c6f306dc9e20c5", name: "Admin" } ],
-  g10u6: [ { username: "admin_hasitha", passwordHash: "7da5bba207ee695fb43d803bfe6db3d563863bc5b56617bcb8c6f306dc9e20c5", name: "Admin" } ],
-  g10u7: [ { username: "admin_hasitha", passwordHash: "7da5bba207ee695fb43d803bfe6db3d563863bc5b56617bcb8c6f306dc9e20c5", name: "Admin" } ]
+  g10u1: [ { username: "admin_hasitha", passwordHash: "3f39e3b3659844d9e8a30d6f93d3319e4bbcf8a19c493cd04ad3159768077877", name: "Admin" } ],
+  g10u2: [ { username: "admin_hasitha", passwordHash: "3f39e3b3659844d9e8a30d6f93d3319e4bbcf8a19c493cd04ad3159768077877", name: "Admin" } ],
+  g10u5: [ { username: "admin_hasitha", passwordHash: "3f39e3b3659844d9e8a30d6f93d3319e4bbcf8a19c493cd04ad3159768077877", name: "Admin" } ],
+  g10u6: [ { username: "admin_hasitha", passwordHash: "3f39e3b3659844d9e8a30d6f93d3319e4bbcf8a19c493cd04ad3159768077877", name: "Admin" } ],
+  g10u7: [ { username: "admin_hasitha", passwordHash: "3f39e3b3659844d9e8a30d6f93d3319e4bbcf8a19c493cd04ad3159768077877", name: "Admin" } ]
 };
 
 // Free-card student: same username/password work for every pack, past,
@@ -1304,7 +1348,7 @@ async function sha256Hex(text) {
   return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
-const unlockedPacks = { july: false, august: false, september: false, g10u1: false, g10u2: false, g10u5: false, g10u6: false, g10u7: false };
+const unlockedPacks = { july: false, august: false, september: false, october: true, g10u1: false, g10u2: false, g10u5: false, g10u6: false, g10u7: false };
 let currentPackKey = null;
 
 // Video list is never shown on the home page — it only appears in the
@@ -1316,12 +1360,12 @@ function openPackVideos(key) {
   if (!pack.videos.length) {
     listEl.innerHTML = `<li class="pack-video-item pack-empty"><i class="fas fa-hourglass-half"></i> Coming soon</li>`;
   } else {
-    listEl.innerHTML = pack.videos.map(v => `
+    listEl.innerHTML = pack.videos.map((v, i) => `
       <li class="pack-video-item">
-        <button class="pack-video-btn" onclick="watchPrivateVideo('${v.id}')">
+        <button class="pack-video-btn" onclick="${v.group ? `openSubVideos('${key}', ${i})` : `watchPrivateVideo('${v.id}')`}">
           <div class="pack-vid-thumb">
             <img src="${v.thumb}" alt="">
-            <div class="pack-vid-play-badge"><i class="fas fa-play-circle"></i></div>
+            <div class="pack-vid-play-badge"><i class="fas fa-${v.group ? 'folder-open' : 'play-circle'}"></i></div>
           </div>
           <span class="pack-vid-title">${v.title}</span>
         </button>
@@ -1337,6 +1381,27 @@ function closePackVideos() {
 }
 document.getElementById('packVideosModal').addEventListener('click', function(e) {
   if (e.target === this) closePackVideos();
+});
+
+// A "group" video entry (e.g. October's Supplementary Videos for Unit 2)
+// opens this second modal listing its own videos instead of playing directly.
+function openSubVideos(key, groupIndex) {
+  const group = lessonPacks[key].videos[groupIndex];
+  document.getElementById('subVideosTitle').textContent = group.title;
+  document.getElementById('subVideosList').innerHTML = group.videos.map(v => `
+    <li class="pack-video-item">
+      <button class="pack-video-btn" onclick="watchPrivateVideo('${v.id}')">
+        <span class="pack-vid-title">${v.title}</span>
+      </button>
+    </li>`
+  ).join('');
+  document.getElementById('subVideosModal').classList.add('active');
+}
+function closeSubVideos() {
+  document.getElementById('subVideosModal').classList.remove('active');
+}
+document.getElementById('subVideosModal').addEventListener('click', function(e) {
+  if (e.target === this) closeSubVideos();
 });
 
 // These are actual YouTube "Private" videos, which YouTube refuses to embed
