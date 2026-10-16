@@ -788,7 +788,7 @@ footer { background: #0d1b2a; color: rgba(255,255,255,0.8); padding: 3rem 2rem 1
         <div class="pack-cover" style="background-image:url('Recordings/28 October/Oct.png')"></div>
         <div class="pack-card-body">
           <div class="pack-header">
-            <i class="fas fa-unlock pack-lock-icon"></i>
+            <i class="fas fa-lock pack-lock-icon"></i>
             <h3>Lesson 2 | October Month</h3>
           </div>
           <button class="btn-primary ripple-btn pack-watch-btn" onclick="openPackLogin('october')">
@@ -1246,7 +1246,8 @@ const lessonPacks = {
         { id: "PVad0c2cljo", title: "RAM Explained" },
         { id: "PBDp50COwRk", title: "Types of ROM" },
         { id: "1cyMTl_QXSc", title: "Hard Disk vs SSD" }
-      ] }
+      ] },
+      { id: "dxtH5P95e4Q", title: "පරිගණක අතුරුමුහුණත් & වොන් නියුමාන් නිර්මිතය", thumb: "Recordings/28 October/Day 1.png" }
     ]
   },
 
@@ -1304,6 +1305,10 @@ const packCredentials = {
     { username: "admin_hasitha", passwordHash: "3f39e3b3659844d9e8a30d6f93d3319e4bbcf8a19c493cd04ad3159768077877", name: "Admin" },
     { username: "28#kasun#007", passwordHash: "6f7ccb112bd8901497a729827656e3e6f6829f907a9e749b406ada8ea6035a58", name: "Kasun" }
   ],
+  october: [
+    { username: "admin_hasitha", passwordHash: "3f39e3b3659844d9e8a30d6f93d3319e4bbcf8a19c493cd04ad3159768077877", name: "Admin" },
+    { username: "28#kasun#007", passwordHash: "3d7c9cb7048ace774518294aed2c105b2e4164cce191ff8cfaaefca884e3f739", name: "Kasun" }
+  ],
   g10u1: [ { username: "admin_hasitha", passwordHash: "3f39e3b3659844d9e8a30d6f93d3319e4bbcf8a19c493cd04ad3159768077877", name: "Admin" } ],
   g10u2: [ { username: "admin_hasitha", passwordHash: "3f39e3b3659844d9e8a30d6f93d3319e4bbcf8a19c493cd04ad3159768077877", name: "Admin" } ],
   g10u5: [ { username: "admin_hasitha", passwordHash: "3f39e3b3659844d9e8a30d6f93d3319e4bbcf8a19c493cd04ad3159768077877", name: "Admin" } ],
@@ -1331,7 +1336,7 @@ async function sha256Hex(text) {
   return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
-const unlockedPacks = { july: false, august: false, september: false, october: true, g10u1: false, g10u2: false, g10u5: false, g10u6: false, g10u7: false };
+const unlockedPacks = { july: false, august: false, september: false, october: false, g10u1: false, g10u2: false, g10u5: false, g10u6: false, g10u7: false };
 let currentPackKey = null;
 
 // Video list is never shown on the home page — it only appears in the
